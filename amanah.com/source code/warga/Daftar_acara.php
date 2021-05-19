@@ -1,5 +1,4 @@
 <?php
-include "../tampil/koneksi.php";
 include '../tampil/header.php';
 
 $data = query("SELECT * FROM daftar_acara");
@@ -37,7 +36,7 @@ if (isset($_POST['cari'])) {
                                     <td><?php echo $d['Nama_acara']; ?></td>
                                     <td><?php echo $d['tanggal_acara'] ?></td>
                                     <td>
-                                        <button class="btn" style="background-color: rgb(141, 76, 206);"><a href="daftarbarangwarga.php?id=<?php echo $d['id']; ?>" style="color:white; ">Lihat</a></button>
+                                        <button class="btn" style="background-color: rgb(141, 76, 206);"><a href="daftarbarang.php?id=<?php echo $d['id']; ?>" style="color:white; ">Lihat</a></button>
                                     </td>
                                 </tr>
                             </tbody>
