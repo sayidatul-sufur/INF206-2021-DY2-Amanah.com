@@ -1,5 +1,5 @@
 <?php
-include '../tampil/koneksi.php';
+include '../tampil/function.php';
 include '../tampil/headerAdmin.php';
 
 $data = query("SELECT * FROM daftar_acara");
