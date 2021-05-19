@@ -1,24 +1,5 @@
 <footer class="footer">
     <div class="container-fluid">
-        <nav class="float-left">
-            <ul>
-                <li>
-                    <a>
-                        Creative Tim
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        Blog
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        Licenses
-                    </a>
-                </li>
-            </ul>
-        </nav>
         <div class="copyright float-right">
             &copy;
             <script>
