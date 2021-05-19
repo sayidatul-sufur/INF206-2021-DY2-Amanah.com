@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2021 at 10:34 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.2
+-- Waktu pembuatan: 19 Bulan Mei 2021 pada 10.29
+-- Versi server: 10.4.18-MariaDB
+-- Versi PHP: 8.0.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `rpl`
+-- Database: `amanah`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `barang`
+-- Struktur dari tabel `barang`
 --
 
 CREATE TABLE `barang` (
@@ -35,7 +35,7 @@ CREATE TABLE `barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `barang`
+-- Dumping data untuk tabel `barang`
 --
 
 INSERT INTO `barang` (`id_Barang`, `id`, `Nama_Barang`, `Jumlah`) VALUES
@@ -55,7 +55,7 @@ INSERT INTO `barang` (`id_Barang`, `id`, `Nama_Barang`, `Jumlah`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `daftar_acara`
+-- Struktur dari tabel `daftar_acara`
 --
 
 CREATE TABLE `daftar_acara` (
@@ -65,55 +65,92 @@ CREATE TABLE `daftar_acara` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `daftar_acara`
+-- Dumping data untuk tabel `daftar_acara`
 --
 
 INSERT INTO `daftar_acara` (`id`, `Nama_acara`, `tanggal_acara`) VALUES
 (1, 'Maulid Nabi', '2021-05-01'),
 (2, 'Gotong Royong', '2021-05-03');
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `sumbangan`
+--
+
+CREATE TABLE `sumbangan` (
+  `id` int(11) NOT NULL,
+  `Nama` varchar(50) NOT NULL,
+  `Alamat` varchar(100) NOT NULL,
+  `no_hp` varchar(15) NOT NULL,
+  `daftar_sumbangan` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `sumbangan`
+--
+
+INSERT INTO `sumbangan` (`id`, `Nama`, `Alamat`, `no_hp`, `daftar_sumbangan`) VALUES
+(1, 'nailul', 'a.selatan', '12345', 'c = 0'),
+(1, 'nailul', 'daftar', '23213', 'c = 0'),
+(1, 'aya', 'fdr', '3213', 'c = 0'),
+(1, 'aya', 'fdr', '3213', 'c = 0'),
+(1, 'aya', '', '', 'c = 0');
+
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `barang`
+-- Indeks untuk tabel `barang`
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`id_Barang`),
   ADD KEY `id` (`id`);
 
 --
--- Indexes for table `daftar_acara`
+-- Indeks untuk tabel `daftar_acara`
 --
 ALTER TABLE `daftar_acara`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indeks untuk tabel `sumbangan`
+--
+ALTER TABLE `sumbangan`
+  ADD KEY `id` (`id`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `barang`
+-- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
   MODIFY `id_Barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
--- AUTO_INCREMENT for table `daftar_acara`
+-- AUTO_INCREMENT untuk tabel `daftar_acara`
 --
 ALTER TABLE `daftar_acara`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `barang`
+-- Ketidakleluasaan untuk tabel `barang`
 --
 ALTER TABLE `barang`
   ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`id`) REFERENCES `daftar_acara` (`id`);
+
+--
+-- Ketidakleluasaan untuk tabel `sumbangan`
+--
+ALTER TABLE `sumbangan`
+  ADD CONSTRAINT `sumbangan_ibfk_1` FOREIGN KEY (`id`) REFERENCES `daftar_acara` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
