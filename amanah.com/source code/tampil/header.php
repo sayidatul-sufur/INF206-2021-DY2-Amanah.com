@@ -1,3 +1,8 @@
+<?php
+// require '../tampil/function.php';
+// include '../tampil/koneksi.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

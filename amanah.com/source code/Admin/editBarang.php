@@ -1,6 +1,6 @@
 <?php
-require 'function.php';
-include '../tampil/header.php';
+require '../tampil/function.php';
+include '../tampil/headerAdmin.php';
 
 $no = $_GET['id_Barang'];
 $data = query("SELECT * from barang where id_Barang='$no'");
@@ -9,14 +9,14 @@ if (isset($_POST["submit"])) {
   if (update($_POST) > 0) {
     echo "
       <script>
-        alert('data berhasil diubah');
+        // alert('data berhasil diubah');
         document.location.href = 'daftarbarang.php';
       </script>
     ";
   } else {
     echo "
       <script>
-        alert('data gagal diubah');
+        // alert('data gagal diubah');
         document.location.href = 'daftarbarang.php';
       </script>
     ";
@@ -54,7 +54,7 @@ if (isset($_POST["submit"])) {
                 </tr>
                 <tr>
                   <td></td>
-                  <td><button class="btn" type="submit" name="submit" style="background-color: rgb(141, 76, 206);">SIMPAN</button></td>
+                  <td><button class="btn" type="submit" name="submit" style="background-color: rgb(141, 76, 206);" data-toggle="modal" data-target="#myModal">SIMPAN</button></td>
                 </tr>
               </table>
             </form>

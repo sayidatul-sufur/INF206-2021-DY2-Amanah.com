@@ -1,17 +1,19 @@
-<?php 
+<?php
 include '../tampil/koneksi.php';
 
-// function query($query){
+// function query($query)
+// {
 //     global $koneksi;
 //     $result = mysqli_query($koneksi, $query);
 //     $rows = [];
-//     while($row = mysqli_fetch_assoc($result)){
+//     while ($row = mysqli_fetch_assoc($result)) {
 //         $rows[] = $row;
 //     }
 //     return $rows;
 // }
 
-function tambah($data){
+function tambah($data)
+{
     global $koneksi;
     $id = $_GET['id'];
     $namaBarang = htmlspecialchars($data['Nama_Barang']);
@@ -24,7 +26,8 @@ function tambah($data){
     return mysqli_affected_rows($koneksi);
 }
 
-function hapus($id){
+function hapus($id)
+{
     global $koneksi;
 
     $query = "delete from barang where id_Barang='$id'";
@@ -32,7 +35,8 @@ function hapus($id){
     return mysqli_affected_rows($koneksi);
 }
 
-function update($id){
+function update($id)
+{
     global $koneksi;
 
     $no = $id['id_Barang'];
@@ -46,7 +50,8 @@ function update($id){
     return mysqli_affected_rows($koneksi);
 }
 
-function caribarang($keyword){
+function caribarang($keyword)
+{
     $query = "SELECT * FROM barang 
                 WHERE Nama_Barang 
                 LIKE '%$keyword%' 

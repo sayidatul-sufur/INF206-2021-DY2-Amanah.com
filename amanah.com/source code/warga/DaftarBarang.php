@@ -1,6 +1,6 @@
 <?php
-require '../Admin/function.php';
-include '../tampil/headerAdmin.php';
+require '../tampil/function.php';
+include '../tampil/header.php';
 
 
 $data = query("SELECT * FROM barang");
@@ -42,7 +42,7 @@ if (isset($_POST['cari'])) {
                     </table>
                     <p class="text-right">
                         <!-- <a href="tambahBarang.php?id=<?php echo $d['id']; ?>"> -->
-                            <button type="button" class="btn float-end" style="background-color: rgb(141, 76, 206);">Sumbangkan</button>
+                        <button type="button" class="btn float-end" style="background-color: rgb(141, 76, 206);">Sumbangkan</button>
                         </a>
                     </p>
                 </div>
