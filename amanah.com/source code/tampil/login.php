@@ -1,34 +1,28 @@
 <?php 
 $koneksi = mysqli_connect("localhost", "root", "", "rpl");
+if(isset($_POST["nama"])){
+	$nama = $_POST["nama"];
+	$katasandi = $_POST["katasandi"];
+	$nope = $_POST["nope"];
+	$cekquery = mysqli_query($koneksi, "SELECT * FROM user where username = '$nama'");
+	$cekuser = mysqli_fetch_assoc($cekquery);
 
-if (mysqli_connect_errno()){
-	echo "Koneksi database gagal : " . mysqli_connect_error();
-}
+if ($nama != $cekuser["username"]) {
+	$masuk = mysqli_query($koneksi,"INSERT INTO user VALUES ('','$nama', '$katasandi', '$nope')");
+	
+		echo '<script>
+           alert("Akun berhasil dibuat!");
+         </script>';
+		 header("Location: login.php");
 
-if(isset($_POST["masuk"])){
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-    
-    $result = mysqli_query($koneksi,"SELECT * FROM user WHERE username = '$username'");
-    $row = mysqli_fetch_assoc($result);
-if(mysqli_num_rows($result)===1){
-    if($password == $row["password"]){
-    echo '<script>
-           alert("Login sukses");
-         </script>';
-		 header("Location: dashboard.php");
-    }else{
-    echo '<script>
-           alert("Password salah");
-         </script>';
-    }
 }else{
-    echo '<script>
-           alert("Login gagal");
-    </script>';
-}
+	echo '<script>
+           alert("Sudah ada akun yang terdaftar!");
+         </script>';
+	}
 
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +39,7 @@ if(mysqli_num_rows($result)===1){
 			<h3>Amanah</h3>
 		</div>
 		<div class="kanan">
-<form action = "" method = "post">	
+<form action = "masuk.php" method = "post">	
         <div class="user">
 				<div class="judul">
 					Username
@@ -91,29 +85,32 @@ if(mysqli_num_rows($result)===1){
 			<div class="at">
 				<h2>Register</h2>
 			</div>
+
+<form action= "" method =  "post">
 			<div class="it" style="display: flex;margin-top: 20px;">
 				<div class="it1" style="margin-right: 7px;">
-					<input type="text" name="nd" placeholder="Nama">
+					<input type="text" name="nama" placeholder="Nama">
 				</div>
 			</div>
 			<div class="it">
 				<div class="it1">
-					<input type="text" name="nr" placeholder="Kata Sandi">
+					<input type="text" name="katasandi" placeholder="Kata Sandi">
 				</div>
 			</div>
 			<div class="it">
 				<div class="it1">
-					<input type="text" name="kt" placeholder="Nomor Handphone">
+					<input type="text" name="nope" placeholder="Nomor Handphone">
 				</div>
 			</div>
 			<div class="it" style="margin-top: 30px;">		
 			</div>
 			<div class="it">
-				<p>Dengan mengklik Create, Anda menyetujui Ketentuan, Kebijakan Data dan Kebijakan Cookie kami.</p>
+				<p>Dengan mengklik Create, Anda menyetujui Ketentuan.</p>
 			</div>
-			<div class="it">
-				<button>CREATE</button>
+			<div class="it">	
+			<button type= "submit">CREATE</button>
 			</div>
+</form>
 		</div>
 	</div>
 </div>
