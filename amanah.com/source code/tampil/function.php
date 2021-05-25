@@ -12,10 +12,11 @@ function query1($query)
     return $rows;
 }
 
+
 function tambah($data)
 {
     global $koneksi;
-    $id = $data['id'];
+    $id = $_GET['id'];
     $namaBarang = htmlspecialchars($data['Nama_Barang']);
     $sum = htmlspecialchars($data['Jumlah']);
     $query = "INSERT INTO barang
@@ -50,7 +51,8 @@ function update($id)
     return mysqli_affected_rows($koneksi);
 }
 
-function cari1($keyword)
+
+function caribarang($keyword)
 {
     $query = "SELECT * FROM barang 
                 WHERE Nama_Barang 
