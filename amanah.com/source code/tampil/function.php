@@ -1,17 +1,6 @@
 <?php
 include '../tampil/koneksi.php';
 
-// function query($query)
-// {
-//     global $koneksi;
-//     $result = mysqli_query($koneksi, $query);
-//     $rows = [];
-//     while ($row = mysqli_fetch_assoc($result)) {
-//         $rows[] = $row;
-//     }
-//     return $rows;
-// }
-
 function tambah($data)
 {
     global $koneksi;
@@ -59,9 +48,3 @@ function caribarang($keyword)
                 LIKE '%$keyword%'";
     return query($query);
 }
-
-// function tampil($id){
-//     $data = "SELECT * FROM barang WHERE id = '$id'";
-
-//     return query($data);
-// }
