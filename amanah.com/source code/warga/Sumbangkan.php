@@ -10,7 +10,7 @@ $nohp = $_POST['nohp'];
 $data = query1("SELECT * FROM barang WHERE id = '$id'");
 
 if (isset($_POST['cari'])) {
-    $data = cari1($_POST["keyword"]);
+    $data = caribarang($_POST["keyword"]);
 }
 // menginput data ke database
 mysqli_query($koneksi, "insert into sumbangan (id,Nama,Alamat,no_hp) values('$id','$nama','$alamat','$nohp')");
@@ -54,9 +54,9 @@ mysqli_query($koneksi, "insert into sumbangan (id,Nama,Alamat,no_hp) values('$id
                             ?>
                         </table>
 
-                        <!-- <p class="text-right">
-                            <button type="submit" class="btn float-end" style="background-color: rgb(141, 76, 206);">Selsai</button>
-                        </p> -->
+                        <p class="text-right">
+                            <button type="submit" class="btn float-end" style="background-color: rgb(141, 76, 206);">Selesai</button>
+                        </p>
                     </form>
 
                 </div>

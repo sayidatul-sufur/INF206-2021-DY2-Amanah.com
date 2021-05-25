@@ -1,6 +1,16 @@
 <?php
 include '../tampil/koneksi.php';
 
+function query1($query)
+{
+    global $koneksi;
+    $result = mysqli_query($koneksi, $query);
+    $rows = [];
+        $rows[] = $row;
+    while ($row = mysqli_fetch_assoc($result)) {
+    }
+    return $rows;
+}
 function tambah($data)
 {
     global $koneksi;
@@ -70,3 +80,18 @@ function cari($keyword)
     return query($query);
 }
 
+function updatejumlah($id)
+{
+    global $koneksi;
+
+    $no = $id['id_Barang'];
+    $namaBarang = $id['Nama_Barang'];
+    $arr = $id['daftar_sumbangan'];
+    $sum = $id['Jumlah'] - $arr;
+
+    // update data ke database
+    $query = "update barang set Nama_Barang='$namaBarang', Jumlah='$sum' where id_Barang='$no'";
+
+    mysqli_query($koneksi, $query);
+    return mysqli_affected_rows($koneksi);
+}
