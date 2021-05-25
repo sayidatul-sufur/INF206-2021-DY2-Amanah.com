@@ -1,3 +1,8 @@
+<?php
+// require '../tampil/function.php';
+// include '../tampil/koneksi.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,12 +19,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- CSS Files -->
     <link href="../../asset/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
-<<<<<<< HEAD
-=======
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-
->>>>>>> DaftarBarang
 </head>
 
 <body class="">
@@ -41,13 +40,13 @@
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="../Admin/profileAdmin.php">
+                        <a class="nav-link" href="../warga/profile.php">
                             <i class="material-icons">person</i>
                             <p>Profile</p>
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../Admin/DaftarAcaraAdmin.php">
+                        <a class="nav-link" href="../warga/Daftar_acara.php">
                             <i class="material-icons">library_books</i>
                             <p>Daftar Acara</p>
                         </a>
@@ -56,12 +55,6 @@
                         <a class="nav-link" href="aboutUs.php">
                             <i class="material-icons">bubble_chart</i>
                             <p>About Us</p>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="../Admin/RiwayatSumbangan.php">
-                            <i class="material-icons">history</i>
-                            <p>Riwayat Sumbangan</p>
                         </a>
                     </li>
                     <li class="nav-item py-5">
@@ -80,11 +73,17 @@
                     <div class="navbar-wrapper">
                         <a class="navbar-brand" href="javascript:;">Daftar Acara</a>
                     </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                        <span class="navbar-toggler-icon icon-bar"></span>
+                    </button>
                     <div class="collapse navbar-collapse justify-content-end">
-                        <form class="navbar-form" method="post" action="">
+                        <form class="navbar-form" method="post" action="../warga/search.php">
                             <div class="input-group no-border">
-                                <input type="text" name="keyword" value="" class="form-control" placeholder="Search..." autofocus>
-                                <button type="submit" name="cari" class="btn btn-white btn-round btn-just-icon" autocomplete="">
+                                <input type="text" name="Nama_acara" value="" class="form-control" placeholder="Search...">
+                                <button type="submit" name="submit" class="btn btn-white btn-round btn-just-icon">
                                     <i class="material-icons">search</i>
                                     <div class="ripple-container"></div>
                                 </button>

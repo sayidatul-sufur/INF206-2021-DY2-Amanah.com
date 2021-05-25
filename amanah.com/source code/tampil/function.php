@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 include 'koneksi.php';
 
 function query1($query)
@@ -11,11 +12,29 @@ function query1($query)
     }
     return $rows;
 }
+=======
+include '../tampil/koneksi.php';
+
+// function query($query)
+// {
+//     global $koneksi;
+//     $result = mysqli_query($koneksi, $query);
+//     $rows = [];
+//     while ($row = mysqli_fetch_assoc($result)) {
+//         $rows[] = $row;
+//     }
+//     return $rows;
+// }
+>>>>>>> DaftarBarang
 
 function tambah($data)
 {
     global $koneksi;
+<<<<<<< HEAD
     $id = $data['id'];
+=======
+    $id = $_GET['id'];
+>>>>>>> DaftarBarang
     $namaBarang = htmlspecialchars($data['Nama_Barang']);
     $sum = htmlspecialchars($data['Jumlah']);
     $query = "INSERT INTO barang
@@ -50,13 +69,18 @@ function update($id)
     return mysqli_affected_rows($koneksi);
 }
 
+<<<<<<< HEAD
 function cari1($keyword)
+=======
+function caribarang($keyword)
+>>>>>>> DaftarBarang
 {
     $query = "SELECT * FROM barang 
                 WHERE Nama_Barang 
                 LIKE '%$keyword%' 
                 || Jumlah 
                 LIKE '%$keyword%'";
+<<<<<<< HEAD
     return query1($query);
 }
 
@@ -96,3 +120,13 @@ function updatejumlah($id)
     mysqli_query($koneksi, $query);
     return mysqli_affected_rows($koneksi);
 }
+=======
+    return query($query);
+}
+
+// function tampil($id){
+//     $data = "SELECT * FROM barang WHERE id = '$id'";
+
+//     return query($data);
+// }
+>>>>>>> DaftarBarang
