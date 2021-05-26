@@ -19475,11 +19475,12 @@ Copyright (c) 2015 Daniel Eden
 
     75% {
       transform: rotate(-5deg);
+    }
 
-    /* 100% {
+    100% {
       bottom: 0px;
       transform: rotate(0);
-    } */
+    }
   }
 
   @-webkit-keyframes bottombar-back {
@@ -19739,6 +19740,8 @@ Copyright (c) 2015 Daniel Eden
     font-size: 1rem;
     margin: 0;
   }
+}
+
 @media (min-width: 992px) {
   .main-panel .navbar .navbar-collapse .navbar-nav .nav-item .nav-link p {
     display: none;
@@ -19752,9 +19755,5 @@ Copyright (c) 2015 Daniel Eden
 .right{
   float: right;
   display: block;
-}
-
-#tambah{
-  border-radius: 24px;
 }
 /*# sourceMappingURL=dashboard-free.css.map */

@@ -1,10 +1,8 @@
-<?php
-// require '../tampil/function.php';
-// include '../tampil/koneksi.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
+<?php
+require '../tampil/function.php';
+?>
 
 <head>
     <meta charset="utf-8" />
@@ -29,12 +27,12 @@
         Tip 2: you can also add an image using data-image tag
     -->
             <div class="logo"><a href="Home.php" class="simple-text logo-normal">
-                    AMANAH.com
+                    Amanah.com
                 </a></div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="Home.php">
+                        <a class="nav-link" href="../tampil/Home.php">
                             <i class="fa fa-home"></i>
                             <p>HOME</p>
                         </a>
@@ -58,8 +56,8 @@
                         </a>
                     </li>
                     <li class="nav-item py-5">
-                        <a class="nav-link" href="login.php">
-                            <i class="fa fa-sign-out"></i>
+                        <a class="nav" href="login.php" data-toggle="modal" data-target="#logoutModal">
+                            <i class="ml-5 fa fa-sign-out"></i>
                             <p>Keluar</p>
                         </a>
                     </li>
@@ -67,28 +65,28 @@
             </div>
         </div>
         <div class="main-panel">
-            <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
                         <a class="navbar-brand" href="javascript:;">Daftar Acara</a>
                     </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="navbar-toggler-icon icon-bar"></span>
-                        <span class="navbar-toggler-icon icon-bar"></span>
-                        <span class="navbar-toggler-icon icon-bar"></span>
-                    </button>
+                    <div>
+                        <button class="btn btn-white btn-round btn-just-icon">
+                            <i class="material-icons">notifications</i>
+                        </button>
+                    </div>
                     <div class="collapse navbar-collapse justify-content-end">
-                        <form class="navbar-form" method="post" action="../warga/search.php">
+                        <form class="navbar-form" method="post" action="">
                             <div class="input-group no-border">
-                                <input type="text" name="Nama_acara" value="" class="form-control" placeholder="Search...">
-                                <button type="submit" name="submit" class="btn btn-white btn-round btn-just-icon">
+                                <input type="text" name="keyword" value="" class="form-control" placeholder="Search..." autofocus>
+                                <button type="submit" name="cari" class="btn btn-white btn-round btn-just-icon" autocomplete="">
                                     <i class="material-icons">search</i>
                                     <div class="ripple-container"></div>
                                 </button>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </nav>
+            <script src="../../asset/js/plugins/sweetalert2.js"></script>
