@@ -1,7 +1,3 @@
-<?php
-$koneksi = mysqli_connect("localhost", "root", "", "amanah");
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,8 +60,8 @@ $koneksi = mysqli_connect("localhost", "root", "", "amanah");
           <a class="nav-link" href="login.php">
           <i class="fa fa-sign-out"></i>
           <p>Keluar</p>
-          </a>
-       </li>
+         </a>
+     </li>
     </ul>
   </div>
 </div>
@@ -103,37 +99,29 @@ $koneksi = mysqli_connect("localhost", "root", "", "amanah");
             <div class="col-md-8">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Data Anda</h4>
+                  <h4 class="card-title">Update</h4>
                 </div>
                 <div class="card-body">
                   <form>
                     <div class="row">
                       <div class="col-md-5">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Nama : </label>
-                          <input type="text" class="form-control" name="nama" value="">
+                        <input type="text" value="" class="form-control" placeholder="Masukkan Nama">
                         </div>
                       </div>
                       <div class="col-md-5">
                         <div class="form-group">
-                          <label class="bmd-label-floating">No Hp :</label>
-                          <input type="text" class="form-control" name="nope" value="">
+                          <input type="text" value="" class="form-control" placeholder="Masukkan No Hp">
                         </div>
                       </div>  
                       </div>
-                      <label>tekan update jika mengubah data anda</label>
-                    <div>  
-                    <a type="submit"class="btn btn-primary pull-right" href="updateprofile.php">         
-                      Update Profile                
-                    </a>
-                  </div>
+                    <a type="submit" class="btn btn-primary pull-right" href="profile.php">konfirmasi</a>
+                    <a type="submit" class="btn btn-primary pull-right" href="profile.php">kembali</a>
                     <div class="clearfix"></div>
                   </form>
                 </div>
               </div>
-            </div>
-            
-     
+            </div>   
     </div>
   </div>
 </body>
