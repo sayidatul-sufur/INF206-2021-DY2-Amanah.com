@@ -3,6 +3,8 @@ include '../tampil/header.php';
 $id = $_GET['id'];
 ?>
 
+
+
 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
     <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
@@ -56,16 +58,20 @@ $id = $_GET['id'];
                     <form method="post" action="Sumbangkan.php">
                         <table type="table table-borderless" class="card bg-primary col-md-4 mx-auto d-block">
                             <tr>
-                                <td><b>Nama</b></td>
+                                <td><b>Masukkan NIK</b></td>
                                 <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                <td><input type="text" name="nik" value="" class="form-control text-center" style="color: white;"></td>
+                            </tr>
+                            <tr>
+                                <td><b>Masukkan Nama</b></td>
                                 <td><input type="text" name="nama" value="" class="form-control text-center" style="color: white;"></td>
                             </tr>
                             <tr>
-                                <td><b>Alamat</b></td>
+                                <td><b>Masukkan Alamat</b></td>
                                 <td><input type="text" name="Alamat" class="form-control text-center" style="color: white;"></td>
                             </tr>
                             <tr>
-                                <td><b>Nomor Hp</b></td>
+                                <td><b>Masukkan Nomor Hp/WA</b></td>
                                 <td><input type="text" name="nohp" class="form-control text-center" style="color: white;"></td>
                             </tr>
                             <tr>
