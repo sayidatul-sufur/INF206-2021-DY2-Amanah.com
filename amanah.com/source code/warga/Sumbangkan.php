@@ -4,16 +4,31 @@ include '../tampil/header.php';
 // menangkap data yang di kirim dari form
 $id = $_POST['id'];
 $nama = $_POST['nama'];
+
 $alamat = $_POST['Alamat'];
 $nohp = $_POST['nohp'];
-
+$nik = $_POST['nik'];
+$data = cek($nik);
+if (count($data)===0) {
+    echo "<script>
+            alert('nik tidak terdaftar');
+        document.location.href = 'form.php?id=$id';
+        </script>";
+    exit;
+}elseif(strtolower($nama) !== strtolower($data[0]['nama_warga'])){
+    echo "<script>
+    alert('Nama tidak terdaftar');
+    document.location.href = 'form.php?id=$id';
+</script>";
+exit;
+}
 $data = query1("SELECT * FROM barang WHERE id = '$id'");
 
 if (isset($_POST['cari'])) {
     $data = caribarang($_POST["keyword"]);
 }
 // menginput data ke database
-mysqli_query($koneksi, "insert into sumbangan (id,Nama,Alamat,no_hp) values('$id','$nama','$alamat','$nohp')");
+mysqli_query($koneksi, "insert into sumbangan (id,nik,Nama,Alamat,no_hp) values('$id','$nik','$nama','$alamat','$nohp')");
 
 ?>
 
@@ -22,6 +37,7 @@ mysqli_query($koneksi, "insert into sumbangan (id,Nama,Alamat,no_hp) values('$id
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
         Tip 2: you can also add an image using data-image tag
     -->
+    <script></script>
     <div class="logo"><a href="Home.php" class="simple-text logo-normal">
             AMANAH.com
         </a></div>

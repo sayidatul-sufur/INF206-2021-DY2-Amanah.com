@@ -60,19 +60,19 @@ $id = $_GET['id'];
                             <tr>
                                 <td><b>Masukkan NIK</b></td>
                                 <input type="hidden" name="id" value="<?php echo $id; ?>">
-                                <td><input type="text" name="nik" value="" class="form-control text-center" style="color: white;"></td>
+                                <td><input type="text" name="nik" value="" class="form-control text-center" required style="color: white;"></td>
                             </tr>
                             <tr>
                                 <td><b>Masukkan Nama</b></td>
-                                <td><input type="text" name="nama" value="" class="form-control text-center" style="color: white;"></td>
+                                <td><input type="text" name="nama" value="" class="form-control text-center" required style="color: white;"></td>
                             </tr>
                             <tr>
                                 <td><b>Masukkan Alamat</b></td>
-                                <td><input type="text" name="Alamat" class="form-control text-center" style="color: white;"></td>
+                                <td><input type="text" name="Alamat" class="form-control text-center" required style="color: white;"></td>
                             </tr>
                             <tr>
                                 <td><b>Masukkan Nomor Hp/WA</b></td>
-                                <td><input type="text" name="nohp" class="form-control text-center" style="color: white;"></td>
+                                <td><input type="text" name="nohp" class="form-control text-center"  required style="color: white;"></td>
                             </tr>
                             <tr>
                                 <td><br></td>
