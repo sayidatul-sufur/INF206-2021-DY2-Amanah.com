@@ -83,6 +83,30 @@ function cari($keyword)
     return query($query);
 }
 
+function queryRiwayat($query)
+{
+    global $koneksi;
+    $result = mysqli_query($koneksi, $query);
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+    return $rows;
+}
+
+function cariRiwayat($keyword)
+{
+    $query = "SELECT * FROM sumbangan
+                WHERE Nama
+                LIKE '%$keyword%' 
+                || Alamat
+                LIKE '%$keyword%'
+                || no_hp
+                LIKE '%$keyword%'";
+    return query($query);
+}
+
+
 function updatejumlah($id)
 {
     global $koneksi;
