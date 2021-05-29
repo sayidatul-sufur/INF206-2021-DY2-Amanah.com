@@ -2,6 +2,7 @@
 require '../tampil/function.php';
 include '../tampil/headerAdmin.php';
 
+$id = $_GET['id'];
 $no = $_GET['id_Barang'];
 $data = query("SELECT * from barang where id_Barang='$no'");
 
@@ -10,14 +11,14 @@ if (isset($_POST["submit"])) {
     echo "
       <script>
         // alert('data berhasil diubah');
-        document.location.href = 'daftarbarang.php';
+        document.location.href = 'daftarbarang.php?id=$id';
       </script>
     ";
   } else {
     echo "
       <script>
         // alert('data gagal diubah');
-        document.location.href = 'daftarbarang.php';
+        document.location.href = 'daftarbarang.php?id=$id';
       </script>
     ";
   }

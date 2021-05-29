@@ -3,20 +3,20 @@ require '../tampil/function.php';
 // include '../tampil/koneksi.php';
 include '../tampil/headerAdmin.php';
 
-// $id = $_GET['id'];
+$id = $_GET['id'];
 if (isset($_POST["submit"])) {
   if (tambah($_POST) > 0) {
     echo "
         <script>
           // alert('data berhasil ditambahkan');
-          document.location.href = 'daftarbarang.php';
+          document.location.href = 'daftarbarang.php?id=$id';
         </script>
       ";
   } else {
     echo "F
         <script>
           // alert('data gagal ditambahkan');
-          document.location.href = 'daftarbarang.php';
+          document.location.href = 'daftarbarang.php?id=$id';
         </script>
       ";
   }
