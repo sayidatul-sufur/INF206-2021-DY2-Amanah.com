@@ -27,12 +27,12 @@ require '../tampil/function.php';
         Tip 2: you can also add an image using data-image tag
     -->
             <div class="logo"><a href="Home.php" class="simple-text logo-normal">
-                    AMANAH.com
+                    Amanah.com
                 </a></div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="Home.php">
+                        <a class="nav-link" href="../tampil/Home.php">
                             <i class="fa fa-home"></i>
                             <p>HOME</p>
                         </a>
@@ -70,6 +70,11 @@ require '../tampil/function.php';
                     <div class="navbar-wrapper">
                         <a class="navbar-brand" href="javascript:;">Daftar Acara</a>
                     </div>
+                    <div>
+                        <button class="btn btn-white btn-round btn-just-icon">
+                            <i class="material-icons">notifications</i>
+                        </button>
+                    </div>
                     <div class="collapse navbar-collapse justify-content-end">
                         <form class="navbar-form" method="post" action="">
                             <div class="input-group no-border">
@@ -80,6 +85,8 @@ require '../tampil/function.php';
                                 </button>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </nav>
+            <script src="../../asset/js/plugins/sweetalert2.js"></script>
