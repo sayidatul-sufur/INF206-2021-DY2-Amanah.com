@@ -27,20 +27,12 @@ if (isset($_POST["submit"])) {
   <div class="container-fluid">
     <div class="card">
       <div class="card-header card-header-primary">
-        <h4 class="card-title">Nama Acara</h4>
-        <!-- <p class="card-category">Created using Roboto Font Family</p> -->
+        <h4 class="card-title">Tambah Barang</h4>
       </div>
       <div class="card-body">
         <div id="typography">
-          <div class="card-title">
-            <h2>Daftar Barang</h2>
-          </div>
           <form method="post" action="">
             <table type="table table-borderless" class="card bg-primary col-md-4 mx-auto d-block">
-              <!-- <tr>			
-                  <td><b>Id Acara</b></td>
-                  <td><input type="text" name="id" value="<?php echo $id; ?>" class="form-control text-center" style="color: white;" disabled></td>
-                </tr> -->
               <tr>
                 <td><b>Nama Barang</b></td>
                 <td><input type="text" name="Nama_Barang" class="form-control text-center" style="color: white;"></td>

@@ -21,14 +21,10 @@
 
 <body class="">
     <div class="wrapper ">
-        <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-            <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-        Tip 2: you can also add an image using data-image tag
-    -->
+        <div class="sidebar" data-color="purple" data-background-color="white" data-image="../../asset/img/sidebar-1.jpg">
             <div class="logo"><a href="Home.php" class="simple-text logo-normal">
-                    AMANAH.com
-                </a></div>
+                    <img src="../../asset/img/favicon.png" width="60" height="60" class="rounded">Amanah.com</a>
+            </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li class="nav-item">
@@ -71,12 +67,10 @@
             </div>
         </div>
         <div class="main-panel">
+
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                 <div class="container-fluid">
-                    <div class="navbar-wrapper">
-                        <a class="navbar-brand" href="javascript:;">Daftar Acara</a>
-                    </div>
                     <div class="collapse navbar-collapse justify-content-end">
                         <form class="navbar-form" method="post" action="">
                             <div class="input-group no-border">

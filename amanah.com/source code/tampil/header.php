@@ -27,8 +27,8 @@ require '../tampil/function.php';
         Tip 2: you can also add an image using data-image tag
     -->
             <div class="logo"><a href="Home.php" class="simple-text logo-normal">
-                    Amanah.com
-                </a></div>
+                    <img src="../../asset/img/favicon.png" width="60" height="60" class="rounded">Amanah.com</a>
+            </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li class="nav-item">
