@@ -84,14 +84,14 @@ if (isset($_POST["nama"])) {
 					<img src="../../asset/icon/fix.png">
 				</div>
 			</div>
-			<div class="kn">
+			<div class="kn" style="display: flex;margin-top: 70px;">
 				<div class="at">
 					<h2>Register</h2>
 				</div>
 
 				<form action="" method="post">
-					<div class="it" style="display: flex;margin-top: 20px;">
-						<div class="it1" style="margin-right: 7px;">
+					<div class="it" style="display: flex;margin-top: 70px;">
+						<div class="it1" style="margin-right: 10px;">
 							<input type="text" name="nama" placeholder="Nama">
 						</div>
 					</div>
@@ -101,7 +101,7 @@ if (isset($_POST["nama"])) {
 						</div>
 					</div>
 					<div class="it">
-						<div class="it1">
+						<div class="it1" >
 							<input type="text" name="nope" placeholder="Nomor Handphone">
 						</div>
 					</div>
