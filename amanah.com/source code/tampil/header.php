@@ -67,9 +67,6 @@ require '../tampil/function.php';
         <div class="main-panel">
             <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                 <div class="container-fluid">
-                    <div class="navbar-wrapper">
-                        <a class="navbar-brand" href="javascript:;">Daftar Acara</a>
-                    </div>
                     <div>
                         <button class="btn btn-white btn-round btn-just-icon">
                             <i class="material-icons">notifications</i>
