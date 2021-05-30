@@ -36,13 +36,7 @@
                             <i class="fa fa-home"></i>
                             <p>HOME</p>
                         </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="../Admin/profileAdmin.php">
-                            <i class="material-icons">person</i>
-                            <p>Profile</p>
-                        </a>
-                    </li>
+                    </li> 
                     <li class="nav-item">
                         <a class="nav-link" href="../Admin/DaftarAcaraAdmin.php">
                             <i class="material-icons">library_books</i>

@@ -97,12 +97,12 @@ include 'header.php';
                     <div class="row">
                       <div class="col-md-5">
                         <div class="form-group">
-                        <input type="text" value="" class="form-control" placeholder="Masukkan Nama">
+                        <input type="text" value="" class="form-control" placeholder="Masukkan Password Lama">
                         </div>
                       </div>
                       <div class="col-md-5">
                         <div class="form-group">
-                          <input type="text" value="" class="form-control" placeholder="Masukkan No Hp">
+                          <input type="text" value="" class="form-control" placeholder="Masukkan Password Baru">
                         </div>
                       </div>  
                       </div>

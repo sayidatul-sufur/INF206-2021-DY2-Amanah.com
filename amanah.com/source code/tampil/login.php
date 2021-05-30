@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 $koneksi = mysqli_connect("localhost", "root", "", "amanah");
 if (isset($_POST["nama"])) {
 	$nama = $_POST["nama"];
