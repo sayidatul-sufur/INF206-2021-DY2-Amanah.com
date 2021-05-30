@@ -1,9 +1,7 @@
 <?php
 include '../tampil/header.php';
-$id = $_GET['id'];
+$id_Sumbangan = $_GET['id_sumbangan'];
 ?>
-
-
 
 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
     <!--
@@ -11,7 +9,7 @@ $id = $_GET['id'];
         Tip 2: you can also add an image using data-image tag
     -->
     <div class="logo"><a href="Home.php" class="simple-text logo-normal">
-            AMANAH.com
+            AMANAH
         </a></div>
     <div class="sidebar-wrapper">
         <ul class="nav">
@@ -55,31 +53,27 @@ $id = $_GET['id'];
         <div class="card">
             <div class="card-body">
                 <div id="typography">
-                    <form method="post" action="Sumbangkan.php">
+                    <form method="post" action="form_aksi.php">
                         <table type="table table-borderless" class="card bg-primary col-md-4 mx-auto d-block">
                             <tr>
-                                <td><b>Masukkan NIK</b></td>
-                                <input type="hidden" name="id" value="<?php echo $id; ?>">
-                                <td><input type="text" name="nik" value="" class="form-control text-center" required style="color: white;"></td>
+                                <td><b>Nama</b></td>
+                                <input type="hidden" name="id_Sumbangan" value="<?php echo $id_Sumbangan; ?>">
+                                <td><input type="text" name="nama" value="" class="form-control text-center" style="color: white;"></td>
                             </tr>
                             <tr>
-                                <td><b>Masukkan Nama</b></td>
-                                <td><input type="text" name="nama" value="" class="form-control text-center" required style="color: white;"></td>
+                                <td><b>Alamat</b></td>
+                                <td><input type="text" name="Alamat" class="form-control text-center" style="color: white;"></td>
                             </tr>
                             <tr>
-                                <td><b>Masukkan Alamat</b></td>
-                                <td><input type="text" name="Alamat" class="form-control text-center" required style="color: white;"></td>
-                            </tr>
-                            <tr>
-                                <td><b>Masukkan Nomor Hp/WA</b></td>
-                                <td><input type="text" name="nohp" class="form-control text-center"  required style="color: white;"></td>
+                                <td><b>Nomor Hp</b></td>
+                                <td><input type="text" name="nohp" class="form-control text-center" style="color: white;"></td>
                             </tr>
                             <tr>
                                 <td><br></td>
                             </tr>
                         </table>
                         <p class="text-right">
-                            <button type="submit" class="btn float-end" style="background-color: rgb(141, 76, 206);">Berikutnya</button>
+                            <button type="submit" class="btn float-end" style="background-color: rgb(141, 76, 206);">Selesai</button>
                         </p>
                     </form>
 

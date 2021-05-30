@@ -27,7 +27,7 @@ if (isset($_POST["nama"])) {
 <html>
 
 <head>
-	<title>Amanah.com</title>
+	<title>AMANAH</title>
 	<link rel="stylesheet" type="text/css" href="../../asset/css/css.css">
 	<link id="favicon" rel="shortcut icon" type="image/png" href="../../asset/icon/am.jpg">
 </head>

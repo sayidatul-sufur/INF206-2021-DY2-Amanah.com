@@ -1,15 +1,58 @@
 <?php
-require '../tampil/function.php';
-include '../tampil/headerAdmin.php';
+include '../tampil/header.php';
 
 // $id = $_GET['id'];
-$data = query("SELECT * FROM barang");
+$data = query1("SELECT * FROM barang");
 // $data = query("SELECT * FROM barang WHERE id = '$id'");
 
 if (isset($_POST['cari'])) {
   $data = caribarang($_POST["keyword"]);
 }
 ?>
+<div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+  <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+        Tip 2: you can also add an image using data-image tag
+    -->
+  <div class="logo"><a href="Home.php" class="simple-text logo-normal">
+      AMANAH
+    </a></div>
+  <div class="sidebar-wrapper">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="Home.php">
+          <i class="fa fa-home"></i>
+          <p>HOME</p>
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="DaftarAcaraAdmin.php">
+          <i class="material-icons">library_books</i>
+          <p>Daftar Acara</p>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="aboutUs.php">
+          <i class="material-icons">bubble_chart</i>
+          <p>About Us</p>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="RiwayatSumbangan.php">
+          <i class="material-icons">history</i>
+          <p>Riwayat Sumbangan</p>
+        </a>
+      </li>
+      <li class="nav-item py-5">
+        <a class="nav-link" href="../tampil/login.php">
+          <i class="fa fa-sign-out"></i>
+          <p>Keluar</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
 <div class="content">
   <div class="container-fluid">
     <div class="card">
@@ -56,6 +99,9 @@ if (isset($_POST['cari'])) {
             ?>
           </table>
           <p class="text-right">
+            <a href="DaftarAcaraAdmin.php?id=<?php echo $d['id']; ?>">
+              <button type="button" class="btn float-end" style="background-color: rgb(141, 76, 206);">Kembali</button>
+            </a>
             <a href="tambahBarang.php?id=<?php echo $d['id']; ?>">
               <button type="button" class="btn float-end" style="background-color: rgb(141, 76, 206);">Tambah Data</button>
             </a>

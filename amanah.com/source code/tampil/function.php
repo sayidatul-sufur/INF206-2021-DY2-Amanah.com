@@ -62,16 +62,6 @@ function caribarang($keyword)
     return query1($query);
 }
 
-function query($query)
-{
-    global $koneksi;
-    $result = mysqli_query($koneksi, $query);
-    $rows = [];
-    while ($row = mysqli_fetch_assoc($result)) {
-        $rows[] = $row;
-    }
-    return $rows;
-}
 
 function cari($keyword)
 {
@@ -80,19 +70,9 @@ function cari($keyword)
                 LIKE '%$keyword%' 
                 || tanggal_acara
                 LIKE '%$keyword%'";
-    return query($query);
+    return query1($query);
 }
 
-function queryRiwayat($query)
-{
-    global $koneksi;
-    $result = mysqli_query($koneksi, $query);
-    $rows = [];
-    while ($row = mysqli_fetch_assoc($result)) {
-        $rows[] = $row;
-    }
-    return $rows;
-}
 
 function cariRiwayat($keyword)
 {
@@ -103,7 +83,7 @@ function cariRiwayat($keyword)
                 LIKE '%$keyword%'
                 || no_hp
                 LIKE '%$keyword%'";
-    return query($query);
+    return query1($query);
 }
 
 
@@ -121,8 +101,4 @@ function updatejumlah($id)
 
     mysqli_query($koneksi, $query);
     return mysqli_affected_rows($koneksi);
-}
-function cek($nik){
-    $query = "SELECT * FROM data_warga WHERE nik='$nik'";
-    return query1($query);
 }
