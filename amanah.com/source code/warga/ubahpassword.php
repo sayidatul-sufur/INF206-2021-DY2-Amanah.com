@@ -1,10 +1,13 @@
 <?php
 include '../tampil/header.php';
 $id = $_GET['id'];
+
+$username=$_GET['username'];
+
 ?>
 
 <?php
-$koneksi = mysqli_connect("localhost", "root", "", "rpl");
+$koneksi = mysqli_connect("localhost", "root", "", "amanah");
 
 if (mysqli_connect_errno()) {
     echo "Koneksi database gagal : " . mysqli_connect_error();
@@ -44,14 +47,85 @@ if (isset($_POST['Ganti'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html>
+     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
 
-<head>
-    <link rel="stylesheet" href="style.css">
-</head>
+            <div class="logo"><a href="Home.php" class="simple-text logo-normal">
+                    Amanah.com
+                </a></div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../tampil/Home.php">
+                            <i class="fa fa-home"></i>
+                            <p>HOME</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="../warga/profile.php">
+                            <i class="material-icons">person</i>
+                            <p>Profile</p>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../warga/Daftar_acara.php">
+                            <i class="material-icons">library_books</i>
+                            <p>Daftar Acara</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="aboutUs.php">
+                            <i class="material-icons">bubble_chart</i>
+                            <p>About Us</p>
+                        </a>
+                    </li>
+                    <li class="nav-item py-5">
+                        <a class="nav" href="login.php" data-toggle="modal" data-target="#logoutModal">
+                            <i class="ml-5 fa fa-sign-out"></i>
+                            <p>Keluar</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
 
-<body>
+<div class="logo"><a href="Home.php" class="simple-text logo-normal">
+        Amanah.com
+    </a></div>
+<div class="sidebar-wrapper">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="../tampil/Home.php">
+                <i class="fa fa-home"></i>
+                <p>HOME</p>
+            </a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="../warga/profile.php">
+                <i class="material-icons">person</i>
+                <p>Profile</p>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link" href="../warga/Daftar_acara.php">
+                <i class="material-icons">library_books</i>
+                <p>Daftar Acara</p>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link" href="aboutUs.php">
+                <i class="material-icons">bubble_chart</i>
+                <p>About Us</p>
+            </a>
+        </li>
+        <li class="nav-item py-5">
+            <a class="nav" href="login.php" data-toggle="modal" data-target="#logoutModal">
+                <i class="ml-5 fa fa-sign-out"></i>
+                <p>Keluar</p>
+            </a>
+        </li>
+    </ul>
+</div>
+</div>
     <form action="#" method="POST" name="ubah-password" enctype="multipart/form-data">
         <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr height="56" align="center">
@@ -64,6 +138,9 @@ if (isset($_POST['Ganti'])) {
             <tr height="36">
                 <td>Password Lama</td>
                 <td><input type="password" name="password_lama" id="password_lama" size="30" maxlength="20"></td>
+
+                <td><input type="hidden" name="username" id="password_lama" value="<?php echo $username  ?>"></td>
+
             </tr>
             <tr height="36">
                 <td>Password Baru</td>

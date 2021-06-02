@@ -22,10 +22,7 @@ require '../tampil/function.php';
 <body class="">
     <div class="wrapper ">
         <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-            <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-        Tip 2: you can also add an image using data-image tag
-    -->
+
             <div class="logo"><a href="Home.php" class="simple-text logo-normal">
                     Amanah.com
                 </a></div>
@@ -67,14 +64,7 @@ require '../tampil/function.php';
         <div class="main-panel">
             <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                 <div class="container-fluid">
-                    <div class="navbar-wrapper">
-                        <a class="navbar-brand" href="javascript:;">Daftar Acara</a>
-                    </div>
-                    <div>
-                        <button class="btn btn-white btn-round btn-just-icon">
-                            <i class="material-icons">notifications</i>
-                        </button>
-                    </div>
+                    
                     <div class="collapse navbar-collapse justify-content-end">
                         <form class="navbar-form" method="post" action="">
                             <div class="input-group no-border">

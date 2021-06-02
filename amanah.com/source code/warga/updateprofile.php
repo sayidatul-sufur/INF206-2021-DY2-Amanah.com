@@ -1,55 +1,13 @@
 <?php
 
-require 'function.php';
 session_start();
-
-$id = $_GET['id'];
-$no = $_GET['id_Barang'];
-$data = query("SELECT * from barang where id_Barang='$no'");
-
-if (isset($_POST["submit"])) {
-  if (update($_POST) > 0) {
-    echo "
-      <script>
-        // alert('data berhasil diubah');
-        document.location.href = 'daftarbarang.php?id=$id';
-      </script>
-    ";
-  } else {
-    echo "
-      <script>
-        // alert('data gagal diubah');
-        document.location.href = 'daftarbarang.php?id=$id';
-      </script>
-    ";
-  }
-}
 include '../tampil/header.php';
 
+$id = $_GET['id'];
+$data = query("SELECT * from user where id='$id'");
+
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    Material Dashboard by Creative Tim
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-  <!-- CSS Files -->
-  <link href="../../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../../assets/demo/demo.css" rel="stylesheet" />
-</head>
-
-<body class="">
-  <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
@@ -117,21 +75,36 @@ include '../tampil/header.php';
                   <h4 class="card-title">Update</h4>
                 </div>
                 <div class="card-body">
-                  <form>
+
+                <?php
+                     $tampilPeg    =mysqli_query($koneksi, "SELECT * FROM user WHERE id='$_SESSION[id]'");
+                     $d    =mysqli_fetch_array($tampilPeg);
+                ?>
+
+                  <form method="post" action="upaction.php">
                     <div class="row">
                       <div class="col-md-5">
                         <div class="form-group">
-                        <input type="text" value="" class="form-control" placeholder="Masukkan Nama">
+                        <label class="bmd-label-floating">Nama :</label>
+                        <input type="text" name="username" class="form-control text-center" value="<?php echo $d['username']; ?>" >
+                        <input type="hidden" name="id" class="form-control text-center" value="<?php echo $d['id']; ?>" >
                         </div>
                       </div>
                       <div class="col-md-5">
                         <div class="form-group">
-                          <input type="text" value="" class="form-control" placeholder="Masukkan No Hp">
+                        <label class="bmd-label-floating">No Hp :</label>
+                          <input type="text" name="no_hp" class="form-control text-center"  value="<?php echo $d['no_hp']; ?>">
+                        </div>
+                      </div>  
+                      <div class="col-md-5">
+                        <div class="form-group">
+                        <label class="bmd-label-floating">E-mail :</label>
+                          <input type="text" value="" name="email" class="form-control" placeholder="Masukkan email">
                         </div>
                       </div>  
                       </div>
-                    <a type="submit" class="btn btn-primary pull-right" href="profile.php">Simpan</a>
-                    <a type="submit" class="btn btn-primary pull-right" href="profile.php">kembali</a>
+                    <button type="submit" class="btn btn-primary pull-right">Simpan</button>
+                    <a class="btn btn-primary pull-right" href="profile.php">kembali</a>
                     <div class="clearfix"></div>
                   </form>
                 </div>

@@ -124,19 +124,19 @@ function updatejumlah($id)
 
 }
 
-function updateprofile($id)
+function updateprofile($id) 
 {
     global $koneksi;
 
-    $no = $id['id_Barang'];
-    $namaBarang = $id['Nama_Barang'];
-    $sum = $id['Jumlah'];
+    $no = $id['id'];
+    $nama = $id['username'];
+    $nope = $id['no_hp'];
+    $email = $id['email'];
 
     // update data ke database
-    $query = "update barang set Nama_Barang='$namaBarang', Jumlah='$sum' where id_Barang='$no'";
+    $query = "update user set username='$nama', no_hp='$nope', email='$email' where id='$no'";
 
     mysqli_query($koneksi, $query);
     return mysqli_affected_rows($koneksi);
 }
-
 

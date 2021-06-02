@@ -12,7 +12,6 @@ if(!isset($_SESSION['username'])){
 
 }
 
-
 include '../tampil/header.php';
 
 ?>
@@ -120,10 +119,10 @@ include '../tampil/header.php';
                   
                       <label>tekan update jika mengubah data anda</label>
                     <div>  
-                    <a type="submit"class="btn btn-primary pull-right" href="updatepassword.php">         
+                    <a type="submit"class="btn btn-primary pull-right" href="ubahpassword.php?id=<?php echo $d['id'] ?> & username=<?php echo $d['username'] ?>">         
                       Update Password                
                     </a>
-                    <a type="submit"class="btn btn-primary pull-right" href="updateprofile.php">         
+                    <a type="submit"class="btn btn-primary pull-right" href="updateprofile.php?id=<?php echo $d['id'] ?>">         
                       Update Profile                
                     </a>
                   </div>
