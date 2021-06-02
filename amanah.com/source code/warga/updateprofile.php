@@ -1,5 +1,29 @@
 <?php
 
+require 'function.php';
+session_start();
+
+$id = $_GET['id'];
+$no = $_GET['id_Barang'];
+$data = query("SELECT * from barang where id_Barang='$no'");
+
+if (isset($_POST["submit"])) {
+  if (update($_POST) > 0) {
+    echo "
+      <script>
+        // alert('data berhasil diubah');
+        document.location.href = 'daftarbarang.php?id=$id';
+      </script>
+    ";
+  } else {
+    echo "
+      <script>
+        // alert('data gagal diubah');
+        document.location.href = 'daftarbarang.php?id=$id';
+      </script>
+    ";
+  }
+}
 include '../tampil/header.php';
 
 ?>

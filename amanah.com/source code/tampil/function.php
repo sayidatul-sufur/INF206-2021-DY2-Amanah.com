@@ -121,4 +121,22 @@ function updatejumlah($id)
 
     mysqli_query($koneksi, $query);
     return mysqli_affected_rows($koneksi);
+
 }
+
+function updateprofile($id)
+{
+    global $koneksi;
+
+    $no = $id['id_Barang'];
+    $namaBarang = $id['Nama_Barang'];
+    $sum = $id['Jumlah'];
+
+    // update data ke database
+    $query = "update barang set Nama_Barang='$namaBarang', Jumlah='$sum' where id_Barang='$no'";
+
+    mysqli_query($koneksi, $query);
+    return mysqli_affected_rows($koneksi);
+}
+
+
