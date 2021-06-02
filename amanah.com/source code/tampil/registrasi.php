@@ -1,11 +1,10 @@
-<?php 
-$koneksi = mysqli_connect("localhost", "root", "", "rpl");
+<?php
+include 'koneksi.php';
 
-$nama = $_POST["nama"];
+$nama = $_POST["username"];
 $katasandi = $_POST["katasandi"];
 $nope = $_POST["nope"];
-$masuk = mysqli_query($koneksi,"INSERT INTO user VALUES ('','$nama', '$katasandi', '$nope')");
+$level = "user";
+$masuk = mysqli_query($koneksi, "INSERT INTO user VALUES ('','$nama', md5('$katasandi'), '$nope', '$level', '')");
 
-header("location : login.php");
-
-?>
+header('location:login.php');

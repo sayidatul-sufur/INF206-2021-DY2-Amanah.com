@@ -1,0 +1,29 @@
+
+#slider_box, #slider div.sliderInner {
+    width:940px; height:423px;/* Atur sama besar dengan gambar yang kita inginkan */
+}
+
+#slider_box {
+	position:relative;
+	margin:0 auto; /*center-aligned*/
+}
+
+
+/* ------ CSS Untuk Navigasi Tombol Biru ------*/
+
+#slider_box div.navBulletsWrapper  {
+    top:390px;/* Posisi ini relative dengan  #slider */
+	text-align:center;
+	background:none;
+	position:relative;
+	z-index:5; }
+
+#slider_box div.navBulletsWrapper div  {
+    width:11px; height:11px;
+    font-size:0;color:White;
+    background:transparent url(../js/bullet.png) no-repeat 0 0;
+    display:inline-block; *display:inline; zoom:1;
+    overflow:hidden;cursor:pointer;
+    margin:0 6px;/* Jarak Antar Tombol Biru*/ }
+
+#slider_box div.navBulletsWrapper div.active {background-position:0 -11px;}/* Untuk merubah Warna menjadi biru ketika di klik */
