@@ -1,8 +1,13 @@
-<?php include '../tampil/header.php';
+<?php
+include '../tampil/header.php';
+$data = query("SELECT * FROM sumbangan");
 
+if (isset($_POST['cari'])) {
+    $data = cariRiwayat($_POST["keyword"]);
+}
 ?>
 
-<div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+<div class="sidebar" data-color="purple" data-background-color="white" data-image="">
     <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
         Tip 2: you can also add an image using data-image tag
@@ -18,13 +23,13 @@
                     <p>HOME</p>
                 </a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="../Admin/DaftarAcaraAdmin.php">
+            <li class="nav-item">
+                <a class="nav-link" href="DaftarAcaraAdmin.php">
                     <i class="material-icons">library_books</i>
                     <p>Daftar Acara</p>
                 </a>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item active">
                 <a class="nav-link" href="RiwayatSumbangan.php">
                     <i class="material-icons">history</i>
                     <p>Riwayat Sumbangan</p>
@@ -50,32 +55,43 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-header card-header-primary">
-                <h4 class="card-title">Tambah Acara</h4>
+                <h4 class="card-title">Riwayat Sumbangan</h4>
+                <!-- <p class="card-category">Created using Roboto Font Family</p> -->
             </div>
             <div class="card-body">
                 <div id="typography">
                     <div class="card-title">
                     </div>
-                    <form method="post" action="tambahAcara_Aksi.php">
-                        <table type="table table-borderless" class="card bg-primary col-md-4 mx-auto d-block">
+                    <table class="table">
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Nama </th>
+                            <th scope="col">Alamat</th>
+                            <th scope="col">No HP</th>
+                            <th scope="col">Daftar Sumbangan</th>
+                        </tr>
+
+                        <?php
+                        $no = 1;
+                        foreach ($data as $d) {
+                        ?>
                             <tr>
-                                <td><b>Nama acara</b></td>
-                                <td><input type="text" name="Nama_acara" class="form-control text-center" style="color: white;"></td>
+                                <td><?php echo $no++; ?></td>
+                                <td><?php echo $d['Nama']; ?></td>
+                                <td><?php echo $d['Alamat']; ?></td>
+                                <td><?php echo $d['no_hp']; ?></td>
+                                <td>
+                                    <button class="btn" style="background-color: rgb(141, 76, 206);"><a href="daftarsumbangan.php?id_Barang=<?= $d['id_Barang']; ?>&nama=<?= $d['Nama']; ?>" style="color: white;">Lihat</a></button>
+                                </td>
                             </tr>
-                            <tr>
-                                <td><b>Tanggal Acara</b></td>
-                                <td><input type="date" name="tanggal_acara" class="form-control text-center" style="color: white;"></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><button value="SIMPAN" class="btn float-end mt-2" style="background-color: rgb(141, 76, 206);">Simpan</td>
-                            </tr>
-                        </table>
-                    </form>
+                        <?php
+                        }
+                        ?>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<?php include '../tampil/footer.php' ?>
+<?php include '../tampil/footer.php';

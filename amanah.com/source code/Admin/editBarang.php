@@ -1,7 +1,7 @@
 <?php
-require '../tampil/function.php';
-include '../tampil/headerAdmin.php';
+include '../tampil/header.php';
 
+$id = $_GET['id'];
 $no = $_GET['id_Barang'];
 $data = query("SELECT * from barang where id_Barang='$no'");
 
@@ -10,32 +10,73 @@ if (isset($_POST["submit"])) {
     echo "
       <script>
         // alert('data berhasil diubah');
-        document.location.href = 'daftarbarang.php';
+        document.location.href = 'daftarbarang.php?id=$id';
       </script>
     ";
   } else {
     echo "
       <script>
         // alert('data gagal diubah');
-        document.location.href = 'daftarbarang.php';
+        document.location.href = 'daftarbarang.php?id=$id';
       </script>
     ";
   }
 }
 
 ?>
+<div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+  <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+        Tip 2: you can also add an image using data-image tag
+    -->
+  <div class="logo"><a href="Home.php" class="simple-text logo-normal">
+      AMANAH
+    </a></div>
+  <div class="sidebar-wrapper">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="dashboardAdmin.php">
+          <i class="fa fa-home"></i>
+          <p>HOME</p>
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="DaftarAcaraAdmin.php">
+          <i class="material-icons">library_books</i>
+          <p>Daftar Acara</p>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="RiwayatSumbangan.php">
+          <i class="material-icons">history</i>
+          <p>Riwayat Sumbangan</p>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="../tampil/aboutUs.php">
+          <i class="material-icons">bubble_chart</i>
+          <p>About Us</p>
+        </a>
+      </li>
+      <li class="nav-item p-5">
+        <a class="nav" href="../tampil/logout.php">
+          <i class="ml-5 fa fa-sign-out"></i>
+          <p>Keluar</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
 <div class="content">
   <div class="container-fluid">
     <div class="card">
       <div class="card-header card-header-primary">
-        <h4 class="card-title">Nama Acara</h4>
+        <h4 class="card-title">Edit Barang</h4>
         <!-- <p class="card-category">Created using Roboto Font Family</p> -->
       </div>
       <div class="card-body">
         <div id="typography">
-          <div class="card-title">
-            <h2>Daftar Barang</h2>
-          </div>
           <?php
           foreach ($data as $d) {
           ?>
@@ -67,8 +108,3 @@ if (isset($_POST["submit"])) {
   </div>
 </div>
 <?php include '../tampil/footer.php' ?>
-</div>
-</div>
-</body>
-
-</html>
