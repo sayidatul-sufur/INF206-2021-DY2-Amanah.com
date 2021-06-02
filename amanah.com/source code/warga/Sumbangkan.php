@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../tampil/header.php';
 
 $id = $_GET['id'];
@@ -48,7 +49,7 @@ if (isset($_POST['cari'])) {
             </li>
             <li class="nav-item p-4">
                 <a class="nav" href="../tampil/logout.php">
-                    <i class="ml-5 fa fa-sign-out"></i>
+                    <i class="ml-4 fa fa-sign-out"></i>
                     <p>Keluar</p>
                 </a>
             </li>
@@ -64,7 +65,6 @@ if (isset($_POST['cari'])) {
             </div>
             <div class="card-body">
                 <div id="typography">
-                    <!-- <form method="post" action="simpan.php?id_Barang=<?= $id; ?>"> -->
                     <table class="table">
                         <tr>
                             <th scope="col">No</th>
@@ -81,11 +81,7 @@ if (isset($_POST['cari'])) {
                                 <td><?= $no++; ?></td>
                                 <td><?= $d['Nama_Barang']; ?></td>
                                 <td><?= $d['Jumlah']; ?></td>
-
-
-                                <!-- <td>
-                                    <button type="submit" class="btn float-end" style="background-color: rgb(141, 76, 206);">simpan</button>
-                                </td> -->
+                                <!-- menyimpan jumlah barang yang disumbangkan -->
                                 <td>
                                     <a href="SumbangBarang.php?id_Barang=<?php echo $d['id_Barang']; ?>&id_Sumbangan=<?= $id_Sumbangan; ?>">
                                         <button type="submit" class="btn float-end" style="background-color: rgb(141, 76, 206);">pilih</button>
@@ -98,14 +94,15 @@ if (isset($_POST['cari'])) {
 
                     </table>
                     <p class="text-right">
+                        <!-- tombol Kembali -->
                         <a href="DaftarBarang.php?id=<?php echo $d['id']; ?>">
                             <button type="button" class="btn float-end" style="background-color: rgb(141, 76, 206);">Kembali</button>
                         </a>
+                        <!-- tombol Berikutnya -->
                         <a href="form.php?id_Sumbangan=<?= $id_Sumbangan; ?>">
                             <button class="btn float-end" style="background-color: rgb(141, 76, 206);">Berikutnya</button>
                         </a>
                     </p>
-                    <!-- </form> -->
 
                 </div>
             </div>

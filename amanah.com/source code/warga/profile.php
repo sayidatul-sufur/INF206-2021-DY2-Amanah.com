@@ -1,14 +1,10 @@
 <?php
 
-// require '../tampil/function.php';
-// session_start();
-
-// $id = $_GET['id'];
-// $data = query("SELECT * from user where id='$id' ");
-
-
 session_start();
 if (!isset($_SESSION['id'])) {
+    die("<b>Oops!</b> Access Failed.
+    <p>Sistem Logout. Anda harus melakukan Login kembali.</p>
+    <button type='button' onclick=location.href='login.php'>Back</button>");
 }
 
 
@@ -49,8 +45,8 @@ include '../tampil/header.php';
                 </a>
             </li>
             <li class="nav-item p-4">
-                <a class="nav-link" href="../tampil/logout.php">
-                    <i class="fa fa-sign-out"></i>
+                <a class="nav" href="../tampil/logout.php">
+                    <i class="ml-4 fa fa-sign-out"></i>
                     <p>Keluar</p>
                 </a>
             </li>

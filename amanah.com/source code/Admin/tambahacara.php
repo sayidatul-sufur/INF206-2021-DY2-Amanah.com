@@ -36,9 +36,9 @@
                     <p>About Us</p>
                 </a>
             </li>
-            <li class="nav-item p-5">
+            <li class="nav-item p-4">
                 <a class="nav" href="../tampil/logout.php">
-                    <i class="ml-5 fa fa-sign-out"></i>
+                    <i class="ml-4 fa fa-sign-out"></i>
                     <p>Keluar</p>
                 </a>
             </li>
@@ -50,12 +50,14 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-header card-header-primary">
+                <!-- judul dari card -->
                 <h4 class="card-title">Tambah Acara</h4>
             </div>
             <div class="card-body">
                 <div id="typography">
                     <div class="card-title">
                     </div>
+                    <!-- form untuk menambahkan acara -->
                     <form method="post" action="tambahAcara_Aksi.php">
                         <table type="table table-borderless" class="card bg-primary col-md-4 mx-auto d-block">
                             <tr>
@@ -68,7 +70,9 @@
                             </tr>
                             <tr>
                                 <td></td>
-                                <td><button value="SIMPAN" class="btn float-end mt-2" style="background-color: rgb(141, 76, 206);">Simpan</td>
+                                <td>
+                                    <button type="submit" class="btn mt-2" style="background-color: rgb(141, 76, 206);">Simpan</button>
+                                </td>
                             </tr>
                         </table>
                     </form>

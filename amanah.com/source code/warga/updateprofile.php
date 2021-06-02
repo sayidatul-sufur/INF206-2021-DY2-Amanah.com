@@ -26,26 +26,26 @@ $data = query("SELECT * from user where id='$id'");
         </a>
       </li>
       <li class="nav-item active  ">
-        <a class="nav-link" href="profile.php">
+        <a class="nav-link" href="./profile.php">
           <i class="material-icons">person</i>
           <p>Profile</p>
         </a>
       </li>
       <li class="nav-item ">
-        <a class="nav-link" href="./Daftar_acara.php">
+        <a class="nav-link" href="./daftaracara.php">
           <i class="material-icons">library_books</i>
           <p>Daftar Acara</p>
         </a>
       </li>
       <li class="nav-item ">
-        <a class="nav-link" href="../tampil/aboutUs.php">
+        <a class="nav-link" href="./about.html">
           <i class="material-icons">bubble_chart</i>
           <p>About Us</p>
         </a>
       </li>
       <li class="nav-item p-4">
-        <a class="nav-link" href="login.php">
-          <i class="fa fa-sign-out"></i>
+        <a class="nav" href="../tampil/logout.php">
+          <i class="ml-4 fa fa-sign-out"></i>
           <p>Keluar</p>
         </a>
       </li>

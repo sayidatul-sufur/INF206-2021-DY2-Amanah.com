@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../tampil/header.php';
 $lama = 1;
 $data = query("SELECT * FROM daftar_acara WHERE DATEDIFF(CURDATE(), tanggal_acara) < $lama");
@@ -45,7 +46,7 @@ if (isset($_POST['cari'])) {
             </li>
             <li class="nav-item p-4">
                 <a class="nav" href="../tampil/logout.php">
-                    <i class="ml-5 fa fa-sign-out"></i>
+                    <i class="ml-4 fa fa-sign-out"></i>
                     <p>Keluar</p>
                 </a>
             </li>

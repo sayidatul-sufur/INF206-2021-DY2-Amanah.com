@@ -21,13 +21,13 @@ $id_Sumbangan = $_GET['id_Sumbangan'];
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="profile.php">
+                <a class="nav-link" href="../warga/profile.php">
                     <i class="material-icons">person</i>
                     <p>Profile</p>
                 </a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="Daftar_acara.php">
+                <a class="nav-link" href="../warga/Daftar_acara.php">
                     <i class="material-icons">library_books</i>
                     <p>Daftar Acara</p>
                 </a>
@@ -40,7 +40,7 @@ $id_Sumbangan = $_GET['id_Sumbangan'];
             </li>
             <li class="nav-item p-4">
                 <a class="nav" href="../tampil/logout.php">
-                    <i class="ml-5 fa fa-sign-out"></i>
+                    <i class="ml-4 fa fa-sign-out"></i>
                     <p>Keluar</p>
                 </a>
             </li>
