@@ -1,31 +1,3 @@
-<?php
-
-session_start();
-
-$koneksi = mysqli_connect("localhost", "root", "", "amanah");
-if (isset($_POST["nama"])) {
-	$nama = $_POST["nama"];
-	$katasandi = $_POST["katasandi"];
-	$nope = $_POST["nope"];
-	$cekquery = mysqli_query($koneksi, "SELECT * FROM user where username = '$nama'");
-	$cekuser = mysqli_fetch_assoc($cekquery);
-
-	if ($nama != $cekuser["username"]) {
-		$masuk = mysqli_query($koneksi, "INSERT INTO user VALUES ('','$nama', '$katasandi', '$nope')");
-
-		echo '<script>
-           alert("Akun berhasil dibuat!");
-         </script>';
-		header("Location: login.php");
-	} else {
-		echo '<script>
-           alert("Sudah ada akun yang terdaftar!");
-         </script>';
-	}
-}
-
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -58,10 +30,11 @@ if (isset($_POST["nama"])) {
 						<div class="input">
 							<input type="password" name="password">
 						</div>
-						<!-- <div class="lupa">
-					<a href="#">Lupa akun?</a>
-				</div> -->
+						<!-- <div class="lupa" name="level">
+							<input type="checkbox">login sebagai Admin</input>
+						</div> -->
 					</div>
+
 					<div class="user">
 						<div class="judul">
 						</div>
@@ -84,24 +57,24 @@ if (isset($_POST["nama"])) {
 					<img src="../../asset/icon/fix.png">
 				</div>
 			</div>
-			<div class="kn" style="display: flex;margin-top: 70px;">
+			<div class="kn">
 				<div class="at">
 					<h2>Register</h2>
 				</div>
 
-				<form action="" method="post">
-					<div class="it" style="display: flex;margin-top: 70px;">
-						<div class="it1" style="margin-right: 10px;">
-							<input type="text" name="nama" placeholder="Nama">
+				<form action="registrasi.php" method="post">
+					<div class="it" style="display: flex;margin-top: 20px;">
+						<div class="it1" style="margin-right: 7px;">
+							<input type="text" name="username" placeholder="Nama">
 						</div>
 					</div>
 					<div class="it">
 						<div class="it1">
-							<input type="text" name="katasandi" placeholder="Kata Sandi">
+							<input type="password" name="katasandi" placeholder="Kata Sandi">
 						</div>
 					</div>
 					<div class="it">
-						<div class="it1" >
+						<div class="it1">
 							<input type="text" name="nope" placeholder="Nomor Handphone">
 						</div>
 					</div>

@@ -1,8 +1,7 @@
 <?php
-
-include 'header.php';
-
+$koneksi = mysqli_connect("localhost", "root", "", "amanah");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,19 +36,19 @@ include 'header.php';
     </a></div>
   <div class="sidebar-wrapper">
     <ul class="nav">
-      <li class="nav-item">
+      <li class="nav-item active  ">
         <a class="nav-link" href="./dashboard.php">
             <i class="material-icons">dashboard</i>
             <p>Home</p>
           </a>
         </li>
-        <li class="nav-item  active">
+        <li class="nav-item ">
           <a class="nav-link" href="./profile.php">
             <i class="material-icons">person</i>
             <p>Profile</p>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item ">
           <a class="nav-link" href="./daftaracara.php">
             <i class="material-icons">library_books</i>
             <p>Daftar Acara</p>
@@ -70,22 +69,36 @@ include 'header.php';
     </ul>
   </div>
 </div>
-<div class="main-panel"> 
+<div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="javascript:;">User Profile</a>
+          </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
-         
+          <div class="collapse navbar-collapse justify-content-end">
+            <form class="navbar-form">
+              <div class="input-group no-border">
+                <input type="text" value="" class="form-control" placeholder="Search...">
+                <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                  <i class="material-icons">search</i>
+                  <div class="ripple-container"></div>
+                </button>
+              </div>
+            </form>
+           
+          </div>
         </div>
       </nav>
       <!-- End Navbar -->
-      <div class="content"  >
-        <div class="container-fluid" >
+      <div class="content">
+        <div class="container-fluid">
           <div class="row">
             <div class="col-md-8">
               <div class="card">
@@ -110,9 +123,6 @@ include 'header.php';
                       </div>
                       <label>tekan update jika mengubah data anda</label>
                     <div>  
-                    <a type="submit"class="btn btn-primary pull-right" href="updatepassword.php">         
-                      Update Password                
-                    </a>
                     <a type="submit"class="btn btn-primary pull-right" href="updateprofile.php">         
                       Update Profile                
                     </a>
@@ -122,6 +132,8 @@ include 'header.php';
                 </div>
               </div>
             </div>
+            
+     
     </div>
   </div>
 </body>
