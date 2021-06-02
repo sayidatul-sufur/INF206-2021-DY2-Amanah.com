@@ -2,8 +2,9 @@
 include '../tampil/header.php';
 
 $id = $_GET['id'];
+$id_Sumbangan = $_GET['id_Sumbangan'];
 
-$data = query1("SELECT * FROM barang WHERE id = '$id'");
+$data = query("SELECT * FROM barang WHERE id = '$id'");
 
 if (isset($_POST['cari'])) {
     $data = caribarang($_POST["keyword"]);
@@ -22,7 +23,7 @@ if (isset($_POST['cari'])) {
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="Home.php">
+                <a class="nav-link" href="dashboard.php">
                     <i class="fa fa-home"></i>
                     <p>HOME</p>
                 </a>
@@ -40,13 +41,13 @@ if (isset($_POST['cari'])) {
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="aboutUs.php">
+                <a class="nav-link" href="../tampil/aboutUs.php">
                     <i class="material-icons">bubble_chart</i>
                     <p>About Us</p>
                 </a>
             </li>
-            <li class="nav-item py-5">
-                <a class="nav" href="login.php" data-toggle="modal" data-target="#logoutModal">
+            <li class="nav-item p-4">
+                <a class="nav" href="../tampil/logout.php">
                     <i class="ml-5 fa fa-sign-out"></i>
                     <p>Keluar</p>
                 </a>
@@ -63,44 +64,48 @@ if (isset($_POST['cari'])) {
             </div>
             <div class="card-body">
                 <div id="typography">
-                    <form method="post" action="simpan.php">
-                        <table class="table">
+                    <!-- <form method="post" action="simpan.php?id_Barang=<?= $id; ?>"> -->
+                    <table class="table">
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Nama Barang</th>
+                            <th scope="col">Jumlah Barang</th>
+                            <th scope="col">Sumbangan</th>
+                            <td></td>
+                        </tr>
+                        <?php
+                        $no = 1;
+                        foreach ($data as $d) {
+                        ?>
                             <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Nama Barang</th>
-                                <th scope="col">Jumlah Barang</th>
-                                <th scope="col">Sumbangan</th>
-                                <td></td>
+                                <td><?= $no++; ?></td>
+                                <td><?= $d['Nama_Barang']; ?></td>
+                                <td><?= $d['Jumlah']; ?></td>
+
+
+                                <!-- <td>
+                                    <button type="submit" class="btn float-end" style="background-color: rgb(141, 76, 206);">simpan</button>
+                                </td> -->
+                                <td>
+                                    <a href="SumbangBarang.php?id_Barang=<?php echo $d['id_Barang']; ?>&id_Sumbangan=<?= $id_Sumbangan; ?>">
+                                        <button type="submit" class="btn float-end" style="background-color: rgb(141, 76, 206);">pilih</button>
+                                    </a>
+                                </td>
                             </tr>
-                            <?php
-                            $no = 1;
-                            foreach ($data as $d) {
-                            ?>
-                                <tr>
-                                    <td><?= $no++; ?></td>
-                                    <td><?= $d['Nama_Barang']; ?></td>
-                                    <td><?= $d['Jumlah']; ?></td>
-                                    <input type="hidden" name="id" value="<?= $d['id']; ?>">
-                                    <input type="hidden" name="id_barang" value="<?= $d['id_Barang']; ?>">
-                                    <input type="hidden" name="Jumlah" value="<?= $d['Jumlah']; ?>">
+                        <?php
+                        }
+                        ?>
 
-                                    <td>
-                                        <input type="number" name="jumlah_sumbangan" class="form-control text-center" value="0" max="<?= $d['Jumlah']; ?>" min="0" style="width: 50px;">
-                                        </input>
-                                    </td>
-                                    <!-- <td>
-                                        <button type="submit" class="btn float-end" style="background-color: rgb(141, 76, 206);">simpan</button>
-                                    </td> -->
-                                </tr>
-                            <?php
-                            }
-                            ?>
-
-                        </table>
-                        <p class="text-right">
-                            <button type="submit" class="btn float-end" style="background-color: rgb(141, 76, 206);">Berikutnya</button>
-                        </p>
-                    </form>
+                    </table>
+                    <p class="text-right">
+                        <a href="DaftarBarang.php?id=<?php echo $d['id']; ?>">
+                            <button type="button" class="btn float-end" style="background-color: rgb(141, 76, 206);">Kembali</button>
+                        </a>
+                        <a href="form.php?id_Sumbangan=<?= $id_Sumbangan; ?>">
+                            <button class="btn float-end" style="background-color: rgb(141, 76, 206);">Berikutnya</button>
+                        </a>
+                    </p>
+                    <!-- </form> -->
 
                 </div>
             </div>

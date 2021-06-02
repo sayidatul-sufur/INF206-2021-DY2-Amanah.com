@@ -1,4 +1,6 @@
-<?php include '../tampil/header.php'; ?>
+<?php include '../tampil/header.php';
+
+?>
 
 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
     <!--
@@ -11,7 +13,7 @@
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="Home.php">
+                <a class="nav-link" href="dashboardAdmin.php">
                     <i class="fa fa-home"></i>
                     <p>HOME</p>
                 </a>
@@ -23,20 +25,20 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="aboutUs.php">
-                    <i class="material-icons">bubble_chart</i>
-                    <p>About Us</p>
-                </a>
-            </li>
-            <li class="nav-item ">
                 <a class="nav-link" href="RiwayatSumbangan.php">
                     <i class="material-icons">history</i>
                     <p>Riwayat Sumbangan</p>
                 </a>
             </li>
-            <li class="nav-item py-5">
-                <a class="nav-link" href="../tampil/login.php">
-                    <i class="fa fa-sign-out"></i>
+            <li class="nav-item ">
+                <a class="nav-link" href="../tampil/aboutUs.php">
+                    <i class="material-icons">bubble_chart</i>
+                    <p>About Us</p>
+                </a>
+            </li>
+            <li class="nav-item p-5">
+                <a class="nav" href="../tampil/logout.php">
+                    <i class="ml-5 fa fa-sign-out"></i>
                     <p>Keluar</p>
                 </a>
             </li>
@@ -54,7 +56,7 @@
                 <div id="typography">
                     <div class="card-title">
                     </div>
-                    <form method="post" action="tambahacara_aksi.php">
+                    <form method="post" action="tambahAcara_Aksi.php">
                         <table type="table table-borderless" class="card bg-primary col-md-4 mx-auto d-block">
                             <tr>
                                 <td><b>Nama acara</b></td>

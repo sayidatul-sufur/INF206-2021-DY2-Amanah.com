@@ -1,25 +1,27 @@
 <?php
-include '../tampil/headerAdmin.php';
+include '../tampil/header.php';
 
-// $id = $_GET['id'];
+
+$id = $_GET['id'];
 if (isset($_POST["submit"])) {
   if (tambah($_POST) > 0) {
     echo "
         <script>
           // alert('data berhasil ditambahkan');
-          document.location.href = 'daftarbarang.php';
+          document.location.href = 'daftarbarang.php?id=$id';
         </script>
       ";
   } else {
-    echo "F
+    echo "
         <script>
           // alert('data gagal ditambahkan');
-          document.location.href = 'daftarbarang.php';
+          document.location.href = 'daftarbarang.php?id=$id';
         </script>
       ";
   }
 }
 ?>
+
 
 <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
   <!--
@@ -32,7 +34,7 @@ if (isset($_POST["submit"])) {
   <div class="sidebar-wrapper">
     <ul class="nav">
       <li class="nav-item">
-        <a class="nav-link" href="Home.php">
+        <a class="nav-link" href="dashboardAdmin.php">
           <i class="fa fa-home"></i>
           <p>HOME</p>
         </a>
@@ -44,20 +46,20 @@ if (isset($_POST["submit"])) {
         </a>
       </li>
       <li class="nav-item ">
-        <a class="nav-link" href="aboutUs.php">
-          <i class="material-icons">bubble_chart</i>
-          <p>About Us</p>
-        </a>
-      </li>
-      <li class="nav-item ">
         <a class="nav-link" href="RiwayatSumbangan.php">
           <i class="material-icons">history</i>
           <p>Riwayat Sumbangan</p>
         </a>
       </li>
-      <li class="nav-item py-5">
-        <a class="nav-link" href="../tampil/login.php">
-          <i class="fa fa-sign-out"></i>
+      <li class="nav-item ">
+        <a class="nav-link" href="../tampil/aboutUs.php">
+          <i class="material-icons">bubble_chart</i>
+          <p>About Us</p>
+        </a>
+      </li>
+      <li class="nav-item p-5">
+        <a class="nav" href="../tampil/logout.php">
+          <i class="ml-5 fa fa-sign-out"></i>
           <p>Keluar</p>
         </a>
       </li>
@@ -69,20 +71,12 @@ if (isset($_POST["submit"])) {
   <div class="container-fluid">
     <div class="card">
       <div class="card-header card-header-primary">
-        <h4 class="card-title">Nama Acara</h4>
-        <!-- <p class="card-category">Created using Roboto Font Family</p> -->
+        <h4 class="card-title">Tambah Barang</h4>
       </div>
       <div class="card-body">
         <div id="typography">
-          <div class="card-title">
-            <h2>Daftar Barang</h2>
-          </div>
           <form method="post" action="">
             <table type="table table-borderless" class="card bg-primary col-md-4 mx-auto d-block">
-              <!-- <tr>			
-                  <td><b>Id Acara</b></td>
-                  <td><input type="text" name="id" value="<?php echo $id; ?>" class="form-control text-center" style="color: white;" disabled></td>
-                </tr> -->
               <tr>
                 <td><b>Nama Barang</b></td>
                 <td><input type="text" name="Nama_Barang" class="form-control text-center" style="color: white;"></td>

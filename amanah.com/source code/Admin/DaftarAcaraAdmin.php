@@ -1,7 +1,8 @@
 <?php
 include '../tampil/header.php';
 
-$data = query1("SELECT * FROM daftar_acara");
+$lama = 1;
+$data = query("SELECT * FROM daftar_acara WHERE DATEDIFF(CURDATE(), tanggal_acara) < $lama");
 
 if (isset($_POST['cari'])) {
     $data = cari($_POST["keyword"]);
@@ -19,7 +20,7 @@ if (isset($_POST['cari'])) {
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="Home.php">
+                <a class="nav-link" href="dashboardAdmin.php">
                     <i class="fa fa-home"></i>
                     <p>HOME</p>
                 </a>
@@ -31,20 +32,20 @@ if (isset($_POST['cari'])) {
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="aboutUs.php">
-                    <i class="material-icons">bubble_chart</i>
-                    <p>About Us</p>
-                </a>
-            </li>
-            <li class="nav-item ">
                 <a class="nav-link" href="RiwayatSumbangan.php">
                     <i class="material-icons">history</i>
                     <p>Riwayat Sumbangan</p>
                 </a>
             </li>
-            <li class="nav-item py-5">
-                <a class="nav-link" href="../tampil/login.php">
-                    <i class="fa fa-sign-out"></i>
+            <li class="nav-item ">
+                <a class="nav-link" href="../tampil/aboutUs.php">
+                    <i class="material-icons">bubble_chart</i>
+                    <p>About Us</p>
+                </a>
+            </li>
+            <li class="nav-item p-5">
+                <a class="nav" href="../tampil/logout.php">
+                    <i class="ml-5 fa fa-sign-out"></i>
                     <p>Keluar</p>
                 </a>
             </li>

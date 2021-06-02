@@ -1,7 +1,8 @@
 <?php
 include '../tampil/header.php';
+$lama = 1;
+$data = query("SELECT * FROM daftar_acara WHERE DATEDIFF(CURDATE(), tanggal_acara) < $lama");
 
-$data = query1("SELECT * FROM daftar_acara");
 
 if (isset($_POST['cari'])) {
     $data = cari($_POST["keyword"]);
@@ -19,31 +20,31 @@ if (isset($_POST['cari'])) {
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="Home.php">
+                <a class="nav-link" href="dashboard.php">
                     <i class="fa fa-home"></i>
                     <p>HOME</p>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="../warga/profile.php">
+                <a class="nav-link" href="profile.php">
                     <i class="material-icons">person</i>
                     <p>Profile</p>
                 </a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="../warga/Daftar_acara.php">
+                <a class="nav-link" href="Daftar_acara.php">
                     <i class="material-icons">library_books</i>
                     <p>Daftar Acara</p>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="aboutUs.php">
+                <a class="nav-link" href="../tampil/aboutUs.php">
                     <i class="material-icons">bubble_chart</i>
                     <p>About Us</p>
                 </a>
             </li>
-            <li class="nav-item py-5">
-                <a class="nav" href="login.php" data-toggle="modal" data-target="#logoutModal">
+            <li class="nav-item p-4">
+                <a class="nav" href="../tampil/logout.php">
                     <i class="ml-5 fa fa-sign-out"></i>
                     <p>Keluar</p>
                 </a>

@@ -3,7 +3,7 @@ include '../tampil/header.php';
 
 $id = $_GET['id'];
 
-$data = query1("SELECT * FROM barang where id=$id");
+$data = query("SELECT * FROM barang where id=$id");
 
 if (isset($_POST['cari'])) {
     $data = caribarang($_POST["keyword"]);
@@ -21,7 +21,7 @@ if (isset($_POST['cari'])) {
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="Home.php">
+                <a class="nav-link" href="dashboard.php">
                     <i class="fa fa-home"></i>
                     <p>HOME</p>
                 </a>
@@ -39,13 +39,13 @@ if (isset($_POST['cari'])) {
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="aboutUs.php">
+                <a class="nav-link" href="../tampil/aboutUs.php">
                     <i class="material-icons">bubble_chart</i>
                     <p>About Us</p>
                 </a>
             </li>
-            <li class="nav-item py-5">
-                <a class="nav" href="login.php" data-toggle="modal" data-target="#logoutModal">
+            <li class="nav-item p-4">
+                <a class="nav" href="../tampil/logout.php">
                     <i class="ml-5 fa fa-sign-out"></i>
                     <p>Keluar</p>
                 </a>
@@ -58,14 +58,11 @@ if (isset($_POST['cari'])) {
     <div class="container-fluid">
         <div class="card">
             <div class="card-header card-header-primary">
-                <h4 class="card-title">Nama Acara</h4>
+                <h4 class="card-title">Daftar Barang</h4>
                 <!-- <p class="card-category">Created using Roboto Font Family</p> -->
             </div>
             <div class="card-body">
                 <div id="typography">
-                    <div class="card-title">
-                        <h2>Daftar Barang</h2>
-                    </div>
                     <table class="table">
                         <tr>
                             <th scope="col">No</th>
@@ -85,11 +82,12 @@ if (isset($_POST['cari'])) {
                         }
                         ?>
                     </table>
+                    <?php $id_Sumbangan = 'AMN' . MYSQLI_TYPE_DATE . rand(1, 1000); ?>
                     <p class="text-right">
                         <a href="Daftar_acara.php?id=<?php echo $d['id']; ?>">
                             <button type="button" class="btn float-end" style="background-color: rgb(141, 76, 206);">Kembali</button>
                         </a>
-                        <a href="Sumbangkan.php?id=<?php echo $d['id'] ?>">
+                        <a href="Sumbangkan.php?id=<?php echo $d['id'] ?>&id_Sumbangan=<?= $id_Sumbangan; ?>">
                             <button type="button" class="btn float-end" style="background-color: rgb(141, 76, 206);">Sumbangkan</button>
                         </a>
                     </p>

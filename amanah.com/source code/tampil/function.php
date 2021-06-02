@@ -1,7 +1,7 @@
 <?php
 include 'koneksi.php';
 
-function query1($query)
+function query($query)
 {
     global $koneksi;
     $result = mysqli_query($koneksi, $query);
@@ -11,7 +11,6 @@ function query1($query)
     }
     return $rows;
 }
-
 
 function tambah($data)
 {
@@ -26,6 +25,7 @@ function tambah($data)
     mysqli_query($koneksi, $query);
     return mysqli_affected_rows($koneksi);
 }
+
 
 function hapus($id)
 {
@@ -59,7 +59,7 @@ function caribarang($keyword)
                 LIKE '%$keyword%' 
                 || Jumlah 
                 LIKE '%$keyword%'";
-    return query1($query);
+    return query($query);
 }
 
 
@@ -70,7 +70,7 @@ function cari($keyword)
                 LIKE '%$keyword%' 
                 || tanggal_acara
                 LIKE '%$keyword%'";
-    return query1($query);
+    return query($query);
 }
 
 
@@ -83,7 +83,7 @@ function cariRiwayat($keyword)
                 LIKE '%$keyword%'
                 || no_hp
                 LIKE '%$keyword%'";
-    return query1($query);
+    return query($query);
 }
 
 

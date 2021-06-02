@@ -55,7 +55,7 @@ if (isset($_POST['Ganti'])) {
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="Home.php">
+                <a class="nav-link" href="dashboard.php">
                     <i class="fa fa-home"></i>
                     <p>HOME</p>
                 </a>
@@ -73,13 +73,13 @@ if (isset($_POST['Ganti'])) {
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="aboutUs.php">
+                <a class="nav-link" href="../tampil/aboutUs.php">
                     <i class="material-icons">bubble_chart</i>
                     <p>About Us</p>
                 </a>
             </li>
-            <li class="nav-item py-5">
-                <a class="nav" href="login.php" data-toggle="modal" data-target="#logoutModal">
+            <li class="nav-item p-5">
+                <a class="nav" href="../tampil/logout.php">
                     <i class="ml-5 fa fa-sign-out"></i>
                     <p>Keluar</p>
                 </a>

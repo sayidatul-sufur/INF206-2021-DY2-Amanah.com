@@ -2,9 +2,9 @@
 include '../tampil/header.php';
 
 $id_Barang = $_GET['id_Barang'];
-$nama = $_GET['nama'];
-$data = query1("SELECT * FROM sumbangan WHERE Nama LIKE '%$nama%'");
-// $data = query("SELECT * FROM barang WHERE id = '$id'");
+$id_Sumbangan = $_GET['id_Sumbangan'];
+$data = query("SELECT * FROM sumbangan WHERE id_Sumbangan LIKE '%$id_Sumbangan%'");
+
 
 if (isset($_POST['cari'])) {
     $data = cari($_POST["keyword"]);
@@ -21,32 +21,32 @@ if (isset($_POST['cari'])) {
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="Home.php">
+                <a class="nav-link" href="dashboardAdmin.php">
                     <i class="fa fa-home"></i>
                     <p>HOME</p>
                 </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="DaftarAcaraAdmin.php">
                     <i class="material-icons">library_books</i>
                     <p>Daftar Acara</p>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="aboutUs.php">
-                    <i class="material-icons">bubble_chart</i>
-                    <p>About Us</p>
-                </a>
-            </li>
-            <li class="nav-item ">
+            <li class="nav-item active">
                 <a class="nav-link" href="RiwayatSumbangan.php">
                     <i class="material-icons">history</i>
                     <p>Riwayat Sumbangan</p>
                 </a>
             </li>
-            <li class="nav-item py-5">
-                <a class="nav-link" href="../tampil/login.php">
-                    <i class="fa fa-sign-out"></i>
+            <li class="nav-item ">
+                <a class="nav-link" href="../tampil/aboutUs.php">
+                    <i class="material-icons">bubble_chart</i>
+                    <p>About Us</p>
+                </a>
+            </li>
+            <li class="nav-item p-5">
+                <a class="nav" href="../tampil/logout.php">
+                    <i class="ml-5 fa fa-sign-out"></i>
                     <p>Keluar</p>
                 </a>
             </li>
@@ -66,6 +66,7 @@ if (isset($_POST['cari'])) {
                     <table class="table table-striped table-hover">
                         <tr>
                             <th scope="col">No</th>
+                            <th scope="col">Nama Acara</th>
                             <th scope="col">Nama Barang</th>
                             <th scope="col">Jumlah Sumbangan</th>
                         </tr>
@@ -75,15 +76,23 @@ if (isset($_POST['cari'])) {
                         ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>
-                                <?php $id = $d['id_Barang'];
-                                $data1 = query1("SELECT * FROM barang WHERE id_Barang=$id");
+                                <?php $id = $d['id'];
+                                $data1 = query("SELECT * FROM daftar_acara WHERE id=$id");
                                 foreach ($data1 as $d1) {
                                 ?>
-                                    <td><?php echo $d1['Nama_Barang']; ?></td>
+                                    <td><?php echo $d1['Nama_acara']; ?></td>
                                 <?php
                                 }
                                 ?>
-                                <td><?php echo $d['jumlah_sumbangan']; ?></td>
+                                <?php $id = $d['id_Barang'];
+                                $data1 = query("SELECT * FROM barang WHERE id_Barang=$id");
+                                foreach ($data1 as $d1) {
+                                ?>
+                                    <td class="px-4"><?php echo $d1['Nama_Barang']; ?></td>
+                                <?php
+                                }
+                                ?>
+                                <td class="px-5"><?php echo $d['jumlah_sumbangan']; ?></td>
                             </tr>
                         <?php
                         }
