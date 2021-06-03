@@ -41,9 +41,9 @@ if (isset($_POST['cari'])) {
                     <p>About Us</p>
                 </a>
             </li>
-            <li class="nav-item p-5">
+            <li class="nav-item p-4">
                 <a class="nav" href="../tampil/logout.php">
-                    <i class="ml-5 fa fa-sign-out"></i>
+                    <i class="ml-4 fa fa-sign-out"></i>
                     <p>Keluar</p>
                 </a>
             </li>
@@ -73,16 +73,24 @@ if (isset($_POST['cari'])) {
 
                         <?php
                         $no = 1;
+                        $id_Sumbangan = "";
                         foreach ($data as $d) {
                         ?>
                             <tr>
+                                <?php
+                                $sekarang = $d['id_Sumbangan'];
+                                if ($sekarang == $id_Sumbangan) {
+                                    continue;
+                                }
+                                ?>
                                 <td><?php echo $no++; ?></td>
                                 <td><?php echo $d['Nama']; ?></td>
                                 <td><?php echo $d['Alamat']; ?></td>
                                 <td><?php echo $d['no_hp']; ?></td>
                                 <td>
-                                    <button class="btn" style="background-color: rgb(141, 76, 206);"><a href="daftarsumbangan.php?id_Barang=<?= $d['id_Barang']; ?>&nama=<?= $d['Nama']; ?>" style="color: white;">Lihat</a></button>
+                                    <button class="btn" style="background-color: rgb(141, 76, 206);"><a href="daftarsumbangan.php?id_Barang=<?= $d['id_Barang']; ?>&id_Sumbangan=<?= $d['id_Sumbangan']; ?>" style="color: white;">Lihat</a></button>
                                 </td>
+                                <?php $id_Sumbangan = $d['id_Sumbangan']; ?>
                             </tr>
                         <?php
                         }

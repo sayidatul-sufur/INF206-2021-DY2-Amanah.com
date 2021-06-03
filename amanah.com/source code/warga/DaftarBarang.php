@@ -1,4 +1,5 @@
 <?php
+
 include '../tampil/header.php';
 
 $id = $_GET['id'];
@@ -44,9 +45,9 @@ if (isset($_POST['cari'])) {
                     <p>About Us</p>
                 </a>
             </li>
-            <li class="nav-item p-5">
+            <li class="nav-item p-4">
                 <a class="nav" href="../tampil/logout.php">
-                    <i class="ml-5 fa fa-sign-out"></i>
+                    <i class="ml-4 fa fa-sign-out"></i>
                     <p>Keluar</p>
                 </a>
             </li>

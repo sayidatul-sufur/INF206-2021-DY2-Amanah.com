@@ -73,6 +73,7 @@ function cari($keyword)
     return query($query);
 }
 
+
 function cariRiwayat($keyword)
 {
     $query = "SELECT * FROM sumbangan
@@ -99,10 +100,6 @@ function updatejumlah($id)
     mysqli_query($koneksi, $query);
     return mysqli_affected_rows($koneksi);
 
-}
-function cek($nik){
-    $query = "SELECT * FROM data_warga WHERE nik='$nik'";
-    return query1($query);
 }
 
 function updateprofile($id) 

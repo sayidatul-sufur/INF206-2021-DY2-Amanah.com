@@ -42,9 +42,9 @@ $data = query("SELECT * from barang where id_Barang='$no'");
                     <p>About Us</p>
                 </a>
             </li>
-            <li class="nav-item p-5">
+            <li class="nav-item p-4">
                 <a class="nav" href="../tampil/logout.php">
-                    <i class="ml-5 fa fa-sign-out"></i>
+                    <i class="ml-4 fa fa-sign-out"></i>
                     <p>Keluar</p>
                 </a>
             </li>
@@ -82,6 +82,7 @@ $data = query("SELECT * from barang where id_Barang='$no'");
                                 </tr>
                                 <tr>
                                     <td></td>
+                                    <!-- tombol simpan -->
                                     <td><button class="btn" type="submit" name="submit" style="background-color: rgb(141, 76, 206);">SIMPAN</button></td>
                                 </tr>
                             </table>

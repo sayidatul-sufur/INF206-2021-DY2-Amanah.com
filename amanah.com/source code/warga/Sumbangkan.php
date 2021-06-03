@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../tampil/header.php';
 
 $id = $_GET['id'];
@@ -19,9 +20,9 @@ if (isset($_POST['cari'])) {
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="nav-item">
-                    <p>HOME</p>
                 <a class="nav-link" href="dashboard.php">
                     <i class="fa fa-home"></i>
+                    <p>HOME</p>
                 </a>
             </li>
             <li class="nav-item ">
@@ -29,7 +30,9 @@ if (isset($_POST['cari'])) {
                     <i class="material-icons">person</i>
                     <p>Profile</p>
                 </a>
+                </li>
             <li class="nav-item active">
+                <a class="nav-link" href="../warga/Daftar_acara.php">
             </li>
                 <a class="nav-link" href="Daftar_acara.php">
                     <i class="material-icons">library_books</i>

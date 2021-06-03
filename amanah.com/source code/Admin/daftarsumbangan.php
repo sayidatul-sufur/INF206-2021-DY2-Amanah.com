@@ -2,9 +2,9 @@
 include '../tampil/header.php';
 
 $id_Barang = $_GET['id_Barang'];
-$nama = $_GET['nama'];
-$data = query("SELECT * FROM sumbangan WHERE Nama LIKE '%$nama%'");
-// $data = query("SELECT * FROM barang WHERE id = '$id'");
+$id_Sumbangan = $_GET['id_Sumbangan'];
+$data = query("SELECT * FROM sumbangan WHERE id_Sumbangan LIKE '%$id_Sumbangan%'");
+
 
 if (isset($_POST['cari'])) {
     $data = cari($_POST["keyword"]);
@@ -44,9 +44,9 @@ if (isset($_POST['cari'])) {
                     <p>About Us</p>
                 </a>
             </li>
-            <li class="nav-item p-5">
+            <li class="nav-item p-4">
                 <a class="nav" href="../tampil/logout.php">
-                    <i class="ml-5 fa fa-sign-out"></i>
+                    <i class="ml-4 fa fa-sign-out"></i>
                     <p>Keluar</p>
                 </a>
             </li>

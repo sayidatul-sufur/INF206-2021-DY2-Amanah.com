@@ -33,14 +33,14 @@ $id_Sumbangan = $_GET['id_Sumbangan'];
                 </a>
             </li>
             <li class="nav-item ">
-                    <i class="material-icons">bubble_chart</i>
                 <a class="nav-link" href="../tampil/aboutUs.php">
+                    <i class="material-icons">bubble_chart</i>
                     <p>About Us</p>
                 </a>
             </li>
+            <li class="nav-item p-4">
                 <a class="nav" href="../tampil/logout.php">
-            <li class="nav-item p-5">
-                    <i class="ml-5 fa fa-sign-out"></i>
+                    <i class="ml-4 fa fa-sign-out"></i>
                     <p>Keluar</p>
                 </a>
             </li>
@@ -66,12 +66,12 @@ $id_Sumbangan = $_GET['id_Sumbangan'];
                                 <td><input type="text" name="nama" value="" class="form-control text-center" required style="color: white;"></td>
                             </tr>
                             <tr>
-                                <td><b>Masukkan Alamat</b></td>
-                                <td><input type="text" name="Alamat" class="form-control text-center" required style="color: white;"></td>
+                                <td><b>Alamat</b></td>
+                                <td><input type="text" name="Alamat" class="form-control text-center" style="color: white;"></td>
                             </tr>
                             <tr>
-                                <td><b>Masukkan Nomor Hp/WA</b></td>
-                                <td><input type="text" name="nohp" class="form-control text-center"  required style="color: white;"></td>
+                                <td><b>Nomor Hp</b></td>
+                                <td><input type="text" name="nohp" class="form-control text-center" style="color: white;"></td>
                             </tr>
                             <tr>
                                 <td><br></td>

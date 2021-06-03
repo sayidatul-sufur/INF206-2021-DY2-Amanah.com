@@ -3,8 +3,8 @@
 
 <head>
 	<title>Amanah.com</title>
-	<link rel="stylesheet" type="text/css" href="../../asset/css/css.css">
-	<link id="favicon" rel="shortcut icon" type="image/png" href="../../asset/icon/am.jpg">
+	<link rel="stylesheet" type="text/css" href="../../assets/css/css.css">
+	<link id="favicon" rel="shortcut icon" type="image/png" href="../../assets/icon/am.jpg">
 </head>
 
 <body>
