@@ -1,5 +1,4 @@
 <?php
-
 include '../tampil/header.php';
 
 if (!isset($_SESSION['username'])) {
@@ -8,12 +7,12 @@ if (!isset($_SESSION['username'])) {
   </script>");
 }
 
-$id = $_GET['id'];
+$lama = 1;
+$data = query("SELECT * FROM daftar_acara WHERE DATEDIFF(CURDATE(), tanggal_acara) < $lama");
 
-$data = query("SELECT * FROM barang where id=$id");
 
 if (isset($_POST['cari'])) {
-    $data = caribarang($_POST["keyword"]);
+    $data = cari($_POST["keyword"]);
 }
 ?>
 
@@ -61,42 +60,46 @@ if (isset($_POST['cari'])) {
     <div class="container-fluid">
         <div class="card">
             <div class="card-header card-header-primary">
-                <h4 class="card-title">Daftar Barang</h4>
-                <!-- <p class="card-category">Created using Roboto Font Family</p> -->
+                <h4 class="card-title">Daftar Acara</h4>
             </div>
             <div class="card-body">
                 <div id="typography">
+                    <div class="card-title">
+                    </div>
+
                     <table class="table">
                         <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Nama Barang</th>
-                            <th class="text-center" scope="col">Jumlah Barang</th>
+                            <th scope="col">Nama Acara</th>
+                            <th scope="col">Tanggal Acara</th>
+                            <th scope="col">Daftar Barang</th>
                         </tr>
                         <?php
                         $no = 1;
                         foreach ($data as $d) {
                         ?>
-                            <tr>
-                                <td><?php echo $no++; ?></td>
-                                <td><?php echo $d['Nama_Barang']; ?></td>
-                                <td class="text-center"><?php echo $d['Jumlah']; ?></td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td><?php echo $no++; ?></td>
+                                    <td><?php echo $d['Nama_acara']; ?></td>
+                                    <td><?php echo $d['tanggal_acara'] ?></td>
+                                    <td>
+                                        <button class="btn" style="background-color: rgb(141, 76, 206);"><a href="DaftarBarang.php?id=<?php echo $d['id']; ?>" style="color:white; ">Lihat</a></button>
+                                    </td>
+                                </tr>
+                            </tbody>
                         <?php
                         }
                         ?>
                     </table>
-                    <?php $id_Sumbangan = 'AMN' . MYSQLI_TYPE_DATE . rand(1, 1000); ?>
-                    <p class="text-right">
-                        <a href="Daftar_acara.php?id=<?php echo $d['id']; ?>">
-                            <button type="button" class="btn float-end" style="background-color: rgb(141, 76, 206);">Kembali</button>
-                        </a>
-                        <a href="Sumbangkan.php?id=<?php echo $d['id'] ?>&id_Sumbangan=<?= $id_Sumbangan; ?>">
-                            <button type="button" class="btn float-end" style="background-color: rgb(141, 76, 206);">Sumbangkan</button>
-                        </a>
-                    </p>
+
                 </div>
+
             </div>
+
+
         </div>
     </div>
 </div>
+
 <?php include '../tampil/footer.php'; ?>

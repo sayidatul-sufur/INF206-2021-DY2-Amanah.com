@@ -1,5 +1,4 @@
 <?php
-
 include '../tampil/header.php';
 
 if (!isset($_SESSION['username'])) {
@@ -9,12 +8,14 @@ if (!isset($_SESSION['username'])) {
 }
 
 $id = $_GET['id'];
+$id_Sumbangan = $_GET['id_Sumbangan'];
 
-$data = query("SELECT * FROM barang where id=$id");
+$data = query("SELECT * FROM barang WHERE id = '$id'");
 
 if (isset($_POST['cari'])) {
     $data = caribarang($_POST["keyword"]);
 }
+
 ?>
 
 <div class="sidebar sidebar-primary" data-color="purple" data-background-color="dark" data-image="../../assets/img/logo.jpeg">
@@ -62,7 +63,6 @@ if (isset($_POST['cari'])) {
         <div class="card">
             <div class="card-header card-header-primary">
                 <h4 class="card-title">Daftar Barang</h4>
-                <!-- <p class="card-category">Created using Roboto Font Family</p> -->
             </div>
             <div class="card-body">
                 <div id="typography">
@@ -70,33 +70,46 @@ if (isset($_POST['cari'])) {
                         <tr>
                             <th scope="col">No</th>
                             <th scope="col">Nama Barang</th>
-                            <th class="text-center" scope="col">Jumlah Barang</th>
+                            <th scope="col">Jumlah Barang</th>
+                            <th scope="col">Sumbangan</th>
+                            <td></td>
                         </tr>
                         <?php
                         $no = 1;
                         foreach ($data as $d) {
                         ?>
                             <tr>
-                                <td><?php echo $no++; ?></td>
-                                <td><?php echo $d['Nama_Barang']; ?></td>
-                                <td class="text-center"><?php echo $d['Jumlah']; ?></td>
+                                <td><?= $no++; ?></td>
+                                <td><?= $d['Nama_Barang']; ?></td>
+                                <td><?= $d['Jumlah']; ?></td>
+                                <!-- menyimpan jumlah barang yang disumbangkan -->
+                                <td>
+                                    <a href="SumbangBarang.php?id_Barang=<?php echo $d['id_Barang']; ?>&id_Sumbangan=<?= $id_Sumbangan; ?>">
+                                        <button type="submit" class="btn float-end" style="background-color: rgb(141, 76, 206);">pilih</button>
+                                    </a>
+                                </td>
                             </tr>
                         <?php
                         }
                         ?>
+
                     </table>
-                    <?php $id_Sumbangan = 'AMN' . MYSQLI_TYPE_DATE . rand(1, 1000); ?>
                     <p class="text-right">
-                        <a href="Daftar_acara.php?id=<?php echo $d['id']; ?>">
+                        <!-- tombol Kembali -->
+                        <a href="DaftarBarang.php?id=<?php echo $d['id']; ?>">
                             <button type="button" class="btn float-end" style="background-color: rgb(141, 76, 206);">Kembali</button>
                         </a>
-                        <a href="Sumbangkan.php?id=<?php echo $d['id'] ?>&id_Sumbangan=<?= $id_Sumbangan; ?>">
-                            <button type="button" class="btn float-end" style="background-color: rgb(141, 76, 206);">Sumbangkan</button>
+                        <!-- tombol Berikutnya -->
+                        <a href="form.php?id_Sumbangan=<?= $id_Sumbangan; ?>">
+                            <button class="btn float-end" style="background-color: rgb(141, 76, 206);">Berikutnya</button>
                         </a>
                     </p>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
 <?php include '../tampil/footer.php'; ?>

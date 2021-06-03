@@ -1,5 +1,4 @@
 <?php
-
 include '../tampil/header.php';
 
 if (!isset($_SESSION['username'])) {
@@ -8,14 +7,10 @@ if (!isset($_SESSION['username'])) {
   </script>");
 }
 
-$id = $_GET['id'];
-
-$data = query("SELECT * FROM barang where id=$id");
-
-if (isset($_POST['cari'])) {
-    $data = caribarang($_POST["keyword"]);
-}
+$id_Sumbangan = $_GET['id_Sumbangan'];
 ?>
+
+
 
 <div class="sidebar sidebar-primary" data-color="purple" data-background-color="dark" data-image="../../assets/img/logo.jpeg">
     <div class="logo"><a href="dashboard.php" class="simple-text logo-normal">
@@ -57,43 +52,41 @@ if (isset($_POST['cari'])) {
     </div>
 </div>
 
+
 <div class="content">
     <div class="container-fluid">
         <div class="card">
-            <div class="card-header card-header-primary">
-                <h4 class="card-title">Daftar Barang</h4>
-                <!-- <p class="card-category">Created using Roboto Font Family</p> -->
-            </div>
             <div class="card-body">
                 <div id="typography">
-                    <table class="table">
-                        <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Nama Barang</th>
-                            <th class="text-center" scope="col">Jumlah Barang</th>
-                        </tr>
-                        <?php
-                        $no = 1;
-                        foreach ($data as $d) {
-                        ?>
+                    <form method="post" action="form_aksi.php">
+                        <table type="table table-borderless" class="card bg-primary col-md-4 mx-auto d-block">
                             <tr>
-                                <td><?php echo $no++; ?></td>
-                                <td><?php echo $d['Nama_Barang']; ?></td>
-                                <td class="text-center"><?php echo $d['Jumlah']; ?></td>
+                                <td><b>NIK</b></td>
+                                <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                <input type="hidden" name="id_Sumbangan" value="<?php echo $id_Sumbangan; ?>">
+                                <td><input type="number" name="nik" value="" class="form-control text-center" required style="color: white;"></td>
                             </tr>
-                        <?php
-                        }
-                        ?>
-                    </table>
-                    <?php $id_Sumbangan = 'AMN' . MYSQLI_TYPE_DATE . rand(1, 1000); ?>
-                    <p class="text-right">
-                        <a href="Daftar_acara.php?id=<?php echo $d['id']; ?>">
-                            <button type="button" class="btn float-end" style="background-color: rgb(141, 76, 206);">Kembali</button>
-                        </a>
-                        <a href="Sumbangkan.php?id=<?php echo $d['id'] ?>&id_Sumbangan=<?= $id_Sumbangan; ?>">
-                            <button type="button" class="btn float-end" style="background-color: rgb(141, 76, 206);">Sumbangkan</button>
-                        </a>
-                    </p>
+                            <tr>
+                                <td><b>Nama</b></td>
+                                <td><input type="text" name="nama" value="" class="form-control text-center" required style="color: white;"></td>
+                            </tr>
+                            <tr>
+                                <td><b>Alamat</b></td>
+                                <td><input type="text" name="Alamat" class="form-control text-center" required style="color: white;"></td>
+                            </tr>
+                            <tr>
+                                <td><b>Nomor Hp/WA</b></td>
+                                <td><input type="number" name="nohp" class="form-control text-center" required style="color: white;"></td>
+                            </tr>
+                            <tr>
+                                <td><br></td>
+                            </tr>
+                        </table>
+                        <p class="text-right">
+                            <button type="submit" class="btn float-end" style="background-color: rgb(141, 76, 206);">Berikutnya</button>
+                        </p>
+                    </form>
+
                 </div>
             </div>
         </div>

@@ -1,5 +1,16 @@
 <?php
-include '../tampil/koneksi.php';
+include 'koneksi.php';
+
+function query($query)
+{
+    global $koneksi;
+    $result = mysqli_query($koneksi, $query);
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+    return $rows;
+}
 
 function tambah($data)
 {
@@ -14,6 +25,7 @@ function tambah($data)
     mysqli_query($koneksi, $query);
     return mysqli_affected_rows($koneksi);
 }
+
 
 function hapus($id)
 {
@@ -39,6 +51,7 @@ function update($id)
     return mysqli_affected_rows($koneksi);
 }
 
+
 function caribarang($keyword)
 {
     $query = "SELECT * FROM barang 
@@ -47,4 +60,45 @@ function caribarang($keyword)
                 || Jumlah 
                 LIKE '%$keyword%'";
     return query($query);
+}
+
+
+function cari($keyword)
+{
+    $query = "SELECT * FROM daftar_acara 
+                WHERE Nama_acara
+                LIKE '%$keyword%' 
+                || tanggal_acara
+                LIKE '%$keyword%'";
+    return query($query);
+}
+
+
+function cariRiwayat($keyword)
+{
+    $query = "SELECT * FROM sumbangan
+                WHERE Nama
+                LIKE '%$keyword%' 
+                || Alamat
+                LIKE '%$keyword%'
+                || no_hp
+                LIKE '%$keyword%'";
+    return query($query);
+}
+
+
+function updatejumlah($id)
+{
+    global $koneksi;
+
+    $no = $id['id_Barang'];
+    $namaBarang = $id['Nama_Barang'];
+    $arr = $id['daftar_sumbangan'];
+    $sum = $id['Jumlah'] - $arr;
+
+    // update data ke database
+    $query = "update barang set Nama_Barang='$namaBarang', Jumlah='$sum' where id_Barang='$no'";
+
+    mysqli_query($koneksi, $query);
+    return mysqli_affected_rows($koneksi);
 }
