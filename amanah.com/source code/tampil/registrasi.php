@@ -8,4 +8,3 @@ $level = "user";
 $masuk = mysqli_query($koneksi, "INSERT INTO user VALUES ('','$nama', md5('$katasandi'), '$nope', '$level', '')");
 
 header('location:login.php');
-

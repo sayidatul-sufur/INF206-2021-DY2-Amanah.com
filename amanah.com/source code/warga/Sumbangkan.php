@@ -1,5 +1,4 @@
 <?php
-session_start();
 include '../tampil/header.php';
 
 $id = $_GET['id'];
