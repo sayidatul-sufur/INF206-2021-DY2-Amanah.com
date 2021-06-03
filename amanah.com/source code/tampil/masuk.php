@@ -19,7 +19,6 @@ $cek = mysqli_num_rows($login);
 if ($cek > 0) {
 
     $data = mysqli_fetch_assoc($login);
-
     // cek jika user login sebagai admin
     if ($data['level'] == "admin") {
 
@@ -27,7 +26,7 @@ if ($cek > 0) {
         $_SESSION['username'] = $username;
         $_SESSION['level'] = "admin";
         // alihkan ke halaman dashboard admin
-        header("location:dashbordAdmin.php");
+        header("location:../Admin/dashbordAdmin.php");
 
         // cek jika user login sebagai pegawai
     } else if ($data['level'] == "user") {
@@ -35,7 +34,7 @@ if ($cek > 0) {
         $_SESSION['username'] = $username;
         $_SESSION['level'] = "user";
         // alihkan ke halaman dashboard pegawai
-        header("location:dashboard.php");
+        header("location:../warga/dashboard.php");
     } else {
 
         // alihkan ke halaman login kembali

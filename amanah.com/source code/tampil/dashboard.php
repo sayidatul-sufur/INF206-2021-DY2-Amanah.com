@@ -42,7 +42,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="DaftarAcara.php">
+                        <a class="nav-link" href="Daftar_acara.php">
                             <i class="material-icons">library_books</i>
                             <p>Daftar Acara</p>
                         </a>
@@ -98,7 +98,7 @@
             <div class="mt-5" id="slider_box" style="top: 85px;">
                   <img src="../../assets/img/slide.png"> 
                   <img src="../../assets/img/slide2.jpg">
-                  <img src="../../assets/img/Neon Fruity Business Facebook Ad.png">
+                  <img src="../../assets/img/3.png">
                   <img src="../../assets/img/slide 5.jpg">
               </div>
         </div> 

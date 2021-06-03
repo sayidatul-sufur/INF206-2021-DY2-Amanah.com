@@ -1,55 +1,42 @@
 <?php
 
-include 'header.php';
+// require '../tampil/function.php';
+// session_start();
+
+// $id = $_GET['id'];
+// $data = query("SELECT * from user where id='$id' ");
+
+
+session_start();
+if(!isset($_SESSION['username'])){
+
+}
+
+include '../tampil/header.php';
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    Material Dashboard by Creative Tim
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-  <!-- CSS Files -->
-  <link href="../../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../../assets/demo/demo.css" rel="stylesheet" />
-</head>
 
-<body class="">
-  <div class="wrapper ">
+
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
     <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
       AMANAH.com
     </a></div>
   <div class="sidebar-wrapper">
     <ul class="nav">
-      <li class="nav-item  ">
+      <li class="nav-item">
         <a class="nav-link" href="./dashboard.php">
             <i class="material-icons">dashboard</i>
             <p>Home</p>
           </a>
         </li>
-        <li class="nav-item active  ">
+        <li class="nav-item  active">
           <a class="nav-link" href="./profile.php">
             <i class="material-icons">person</i>
             <p>Profile</p>
           </a>
         </li>
-        <li class="nav-item ">
+        <li class="nav-item">
           <a class="nav-link" href="./daftaracara.php">
             <i class="material-icons">library_books</i>
             <p>Daftar Acara</p>
@@ -65,12 +52,12 @@ include 'header.php';
           <a class="nav-link" href="login.php">
           <i class="fa fa-sign-out"></i>
           <p>Keluar</p>
-         </a>
-     </li>
+          </a>
+       </li>
     </ul>
   </div>
 </div>
-<div class="main-panel">
+<div class="main-panel"> 
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
@@ -84,37 +71,67 @@ include 'header.php';
         </div>
       </nav>
       <!-- End Navbar -->
-      <div class="content">
-        <div class="container-fluid">
+      <div class="content"  >
+        <div class="container-fluid" >
           <div class="row">
             <div class="col-md-8">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Update</h4>
+                  <h4 class="card-title">Data Anda</h4>
                 </div>
                 <div class="card-body">
+
+                <?php
+                     $tampilPeg    =mysqli_query($koneksi, "SELECT * FROM user WHERE id='$_SESSION[id]'");
+                     $d    =mysqli_fetch_array($tampilPeg);
+                ?>
+
                   <form>
                     <div class="row">
                       <div class="col-md-5">
                         <div class="form-group">
-                        <input type="text" value="" class="form-control" placeholder="Masukkan Nama">
+                          <label class="bmd-label-floating">Nama : </label>
+
+                          <input type="hidden" name="id" value="<?php echo $d['id']; ?>">
+                          <input type="text" name="username" class="form-control text-center" value="<?php echo $d['username']; ?>"disabled>
+
                         </div>
                       </div>
                       <div class="col-md-5">
                         <div class="form-group">
-                          <input type="text" value="" class="form-control" placeholder="Masukkan No Hp">
+                          <label class="bmd-label-floating">No Hp :</label>
+
+                       <input type="text" name="no_hp" class="form-control text-center"  value="<?php echo $d['no_hp']; ?>"disabled>
+
                         </div>
                       </div>  
+
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">E-mail :</label>
+
+                       <input type="text" name="no_hp" class="form-control text-center" value="<?php echo $d['email']; ?>"disabled>
+
+                        </div>
+                      </div>  
+
                       </div>
-                    <a type="submit" class="btn btn-primary pull-right" href="profile.php">Simpan</a>
-                    <a type="submit" class="btn btn-primary pull-right" href="profile.php">kembali</a>
+                  
+                      <label>tekan update jika mengubah data anda</label>
+                    <div>  
+                    <a type="submit"class="btn btn-primary pull-right" href="ubahpassword.php?id=<?php echo $d['id'] ?> & username=<?php echo $d['username'] ?>">         
+                      Update Password                
+                    </a>
+                    <a type="submit"class="btn btn-primary pull-right" href="updateprofile.php?id=<?php echo $d['id'] ?>">         
+                      Update Profile                
+                    </a>
+                  </div>
                     <div class="clearfix"></div>
                   </form>
                 </div>
               </div>
-            </div>   
+            </div>
     </div>
   </div>
 </body>
-
 </html>

@@ -98,8 +98,26 @@ function updatejumlah($id)
 
     mysqli_query($koneksi, $query);
     return mysqli_affected_rows($koneksi);
+
 }
 function cek($nik){
     $query = "SELECT * FROM data_warga WHERE nik='$nik'";
     return query1($query);
 }
+
+function updateprofile($id) 
+{
+    global $koneksi;
+
+    $no = $id['id'];
+    $nama = $id['username'];
+    $nope = $id['no_hp'];
+    $email = $id['email'];
+
+    // update data ke database
+    $query = "update user set username='$nama', no_hp='$nope', email='$email' where id='$no'";
+
+    mysqli_query($koneksi, $query);
+    return mysqli_affected_rows($koneksi);
+}
+

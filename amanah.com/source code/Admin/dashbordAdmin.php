@@ -1,17 +1,3 @@
-<?php
-// session_start();
-
-// cek apakah yang mengakses halaman ini sudah login
-// if (!$_SESSION['level'] == "admin") {
-//   session_start();
-//   header("location:login.php?pesan=gagal");
-//   exit();
-// } else {
-//   session_start();
-// }
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +7,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Material Dashboard by Creative Tim
+  Amanah
   </title>
   <script src="../../assets/js/js-image-slider.js"></script>
   <link href="../../assets/js/js-image-slider.css" rel="stylesheet" type="text/css">
@@ -34,51 +20,51 @@
 </head>
 
 <body class="">
-  <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-      <!--
+    <div class="wrapper ">
+        <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+            <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo"><a href="Home.php" class="simple-text logo-normal">
-          AMANAH.com
-        </a></div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="dashbordAdmin.php">
-              <i class="fa fa-home"></i>
-              <p>HOME</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="DaftarAcaraAdmin.php">
-              <i class="material-icons">library_books</i>
-              <p>Daftar Acara</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="RiwayatSumbangan.php">
-              <i class="material-icons">history</i>
-              <p>Riwayat Sumbangan</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="../tampil/aboutUs.php">
-              <i class="material-icons">bubble_chart</i>
-              <p>About Us</p>
-            </a>
-          </li>
-          <li class="nav-item p-5">
-            <a class="nav" href="../tampil/logout.php">
-              <i class="ml-5 fa fa-sign-out"></i>
-              <p>Keluar</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="main-panel">
+            <div class="logo"><a href="Home.php" class="simple-text logo-normal">
+                    AMANAH.com
+                </a></div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="dashbordAdmin.php">
+                            <i class="fa fa-home"></i>
+                            <p>HOME</p>
+                        </a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Admin/DaftarAcaraAdmin.php">
+                            <i class="material-icons">library_books</i>
+                            <p>Daftar Acara</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="aboutUs.php">
+                            <i class="material-icons">bubble_chart</i>
+                            <p>About Us</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="../Admin/RiwayatSumbangan.php">
+                            <i class="material-icons">history</i>
+                            <p>Riwayat Sumbangan</p>
+                        </a>
+                    </li>
+                    <li class="nav-item p-5">
+                        <a class="nav-link" href="login.php">
+                            <i class="fa fa-sign-out"></i>
+                            <p>Keluar</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
@@ -101,28 +87,28 @@
                 </button>
               </div>
             </form>
-
+           
           </div>
         </div>
       </nav>
 
 
-      <div id="slider">
-
-        <div class="container" style="width: 940px; height: 423px;">
-
-          <div class="mt-5" id="slider_box" style="top: 85px;">
-            <img src="../../assets/img/slide.png">
-            <img src="../../assets/img/slide2.jpg">
-            <img src="../../assets/img/Neon Fruity Business Facebook Ad.png">
-            <img src="../../assets/img/slide 5.jpg">
-          </div>
-        </div>
+    <div id="slider">
+        
+        <div class="container"  style="width: 940px; height: 423px;">
+          
+            <div class="mt-5" id="slider_box" style="top: 85px;">
+                  <img src="../../assets/img/slide.png"> 
+                  <img src="../../assets/img/slide2.jpg">
+                  <img src="../../assets/img/Neon Fruity Business Facebook Ad.png">
+                  <img src="../../assets/img/slide 5.jpg">
+              </div>
+        </div> 
       </div>
 
 
-
-    </div>
+      
+    </div>    
   </div>
 
   <!--   Core JS Files   -->
