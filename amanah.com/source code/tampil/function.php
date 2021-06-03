@@ -1,7 +1,7 @@
 <?php
 include 'koneksi.php';
 
-function query1($query)
+function query($query)
 {
     global $koneksi;
     $result = mysqli_query($koneksi, $query);
@@ -11,7 +11,6 @@ function query1($query)
     }
     return $rows;
 }
-
 
 function tambah($data)
 {
@@ -26,6 +25,7 @@ function tambah($data)
     mysqli_query($koneksi, $query);
     return mysqli_affected_rows($koneksi);
 }
+
 
 function hapus($id)
 {
@@ -59,19 +59,9 @@ function caribarang($keyword)
                 LIKE '%$keyword%' 
                 || Jumlah 
                 LIKE '%$keyword%'";
-    return query1($query);
+    return query($query);
 }
 
-function query($query)
-{
-    global $koneksi;
-    $result = mysqli_query($koneksi, $query);
-    $rows = [];
-    while ($row = mysqli_fetch_assoc($result)) {
-        $rows[] = $row;
-    }
-    return $rows;
-}
 
 function cari($keyword)
 {
@@ -83,17 +73,6 @@ function cari($keyword)
     return query($query);
 }
 
-function queryRiwayat($query)
-{
-    global $koneksi;
-    $result = mysqli_query($koneksi, $query);
-    $rows = [];
-    while ($row = mysqli_fetch_assoc($result)) {
-        $rows[] = $row;
-    }
-    return $rows;
-}
-
 function cariRiwayat($keyword)
 {
     $query = "SELECT * FROM sumbangan
@@ -101,12 +80,10 @@ function cariRiwayat($keyword)
                 LIKE '%$keyword%' 
                 || Alamat
                 LIKE '%$keyword%'
-                || no_hp
                 LIKE '%$keyword%'";
+                || no_hp
     return query($query);
 }
-
-
 function updatejumlah($id)
 {
     global $koneksi;
