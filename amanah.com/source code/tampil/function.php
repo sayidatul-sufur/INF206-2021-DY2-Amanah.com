@@ -81,10 +81,12 @@ function cariRiwayat($keyword)
                 LIKE '%$keyword%' 
                 || Alamat
                 LIKE '%$keyword%'
-                LIKE '%$keyword%'";
                 || no_hp
+                LIKE '%$keyword%'";
     return query($query);
 }
+
+
 function updatejumlah($id)
 {
     global $koneksi;
@@ -99,22 +101,4 @@ function updatejumlah($id)
 
     mysqli_query($koneksi, $query);
     return mysqli_affected_rows($koneksi);
-
 }
-
-function updateprofile($id) 
-{
-    global $koneksi;
-
-    $no = $id['id'];
-    $nama = $id['username'];
-    $nope = $id['no_hp'];
-    $email = $id['email'];
-
-    // update data ke database
-    $query = "update user set username='$nama', no_hp='$nope', email='$email' where id='$no'";
-
-    mysqli_query($koneksi, $query);
-    return mysqli_affected_rows($koneksi);
-}
-

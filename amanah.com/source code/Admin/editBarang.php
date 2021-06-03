@@ -1,6 +1,12 @@
 <?php
 include '../tampil/header.php';
 
+if (!isset($_SESSION['username'])) {
+  die("<script>
+  document.location.href = '../../index.php';
+</script>");
+}
+
 $id = $_GET['id'];
 $no = $_GET['id_Barang'];
 $data = query("SELECT * from barang where id_Barang='$no'");
@@ -29,15 +35,15 @@ if (isset($_POST["submit"])) {
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
         Tip 2: you can also add an image using data-image tag
     -->
-  <div class="logo"><a href="Home.php" class="simple-text logo-normal">
-      AMANAH
-    </a></div>
+  <div class="logo"><a href="dashbordAdmin.php" class="simple-text logo-normal">
+      <img src="../../assets/img/logo.png" width="60" height="60" class="rounded">Amanah.com</a>
+  </div>
   <div class="sidebar-wrapper">
     <ul class="nav">
       <li class="nav-item">
         <a class="nav-link" href="dashboardAdmin.php">
           <i class="fa fa-home"></i>
-          <p>HOME</p>
+          <p>Home</p>
         </a>
       </li>
       <li class="nav-item active">
@@ -53,7 +59,7 @@ if (isset($_POST["submit"])) {
         </a>
       </li>
       <li class="nav-item ">
-        <a class="nav-link" href="../tampil/aboutUs.php">
+        <a class="nav-link" href="aboutUsAdmin.php">
           <i class="material-icons">bubble_chart</i>
           <p>About Us</p>
         </a>
@@ -67,6 +73,8 @@ if (isset($_POST["submit"])) {
     </ul>
   </div>
 </div>
+
+<!-- End Navbar -->
 
 <div class="content">
   <div class="container-fluid">

@@ -25,6 +25,7 @@ if ($cek > 0) {
         // buat session login dan username
         $_SESSION['username'] = $username;
         $_SESSION['level'] = "admin";
+        $_SESSION['id'] = $data['id'];
         // alihkan ke halaman dashboard admin
         header("location:../Admin/dashbordAdmin.php");
 
@@ -33,13 +34,14 @@ if ($cek > 0) {
         // buat session login dan username
         $_SESSION['username'] = $username;
         $_SESSION['level'] = "user";
+        $_SESSION['id'] = $data['id'];
         // alihkan ke halaman dashboard pegawai
         header("location:../warga/dashboard.php");
     } else {
 
         // alihkan ke halaman login kembali
-        header("location:login.php?pesan=gagal");
+        header("location:../../index.php?pesan=gagal");
     }
 } else {
-    header("location:login.php?pesan=gagal");
+    header("location:../../index.php?pesan=gagal");
 }

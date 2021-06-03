@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+session_start();
 require '../tampil/function.php';
 ?>
 
@@ -22,7 +23,7 @@ require '../tampil/function.php';
     <link href="../../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
 </head>
 
-<body class="">
+<body class="" style="background: #d699ff;">
     <div class="wrapper ">
         <div class="main-panel">
             <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">

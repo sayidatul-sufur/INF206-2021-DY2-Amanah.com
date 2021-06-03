@@ -2,6 +2,12 @@
 
 include '../tampil/header.php';
 
+if (!isset($_SESSION['username'])) {
+    die("<script>
+    document.location.href = '../../index.php';
+  </script>");
+}
+
 $id = $_GET['id'];
 
 $data = query("SELECT * FROM barang where id=$id");
@@ -11,20 +17,16 @@ if (isset($_POST['cari'])) {
 }
 ?>
 
-<div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-    <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-        Tip 2: you can also add an image using data-image tag
-    -->
-    <div class="logo"><a href="Home.php" class="simple-text logo-normal">
-            AMANAH
-        </a></div>
+<div class="sidebar sidebar-primary" data-color="purple" data-background-color="dark" data-image="../../assets/img/logo.jpeg">
+    <div class="logo"><a href="dashboard.php" class="simple-text logo-normal">
+            <img src="../../assets/img/logo.png" width="60" height="60" class="rounded">Amanah.com</a>
+    </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="nav-item">
                 <a class="nav-link" href="dashboard.php">
                     <i class="fa fa-home"></i>
-                    <p>HOME</p>
+                    <p>Home</p>
                 </a>
             </li>
             <li class="nav-item ">
@@ -40,7 +42,7 @@ if (isset($_POST['cari'])) {
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="../tampil/aboutUs.php">
+                <a class="nav-link" href="aboutUs.php">
                     <i class="material-icons">bubble_chart</i>
                     <p>About Us</p>
                 </a>
